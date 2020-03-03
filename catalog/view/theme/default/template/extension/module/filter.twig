@@ -28,20 +28,27 @@
         {% endfor %}
       </div>
   </div>
-  <div class="baton">
+  {# <div class="baton">
       <button class="btn btn-primary" type="button" id="button-filter">{{ apply }}</button>
-  </div>
+  </div> #}
 </form>
 
 <script>
+  $('.filter-top-chek input').on('click', function(){
+    filter = [];
+	
+		$('input[name^=\'filter\']:checked').each(function(element) {
+			filter.push(this.value);
+		});
+    location = '{{ action }}&filter=' + filter.join(',');
+  })
 	$('#button-filter').on('click', function() {
 		filter = [];
 	
 		$('input[name^=\'filter\']:checked').each(function(element) {
 			filter.push(this.value);
 		});
-	
-		location = '{{ action }}&filter=' + filter.join(',');
+    location = '{{ action }}&filter=' + filter.join(',');
 	});
 </script>
 
