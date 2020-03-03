@@ -1,0 +1,106 @@
+<div id="categoryProducts">
+    {% if products %}
+        <div class="row nonePaddding" id="products">
+            {% for product in products %}
+                <div class="col-4  col-md-4  col-xl-4">
+                    <div class="item-product">
+                        <a href="#" onclick="return false;" class="desktop-product modal-product">
+                            <input type="hidden" class="product_id" value="{{ product.product_id }}">
+                                
+                            <div class="img-wrap">
+                                <img src="{{ product.thumb }}" alt="">
+                            </div>
+                            {% if product.special %}
+                                <div class="label">-{{ product.percent_special }}%</div>
+                            {% endif %}
+                            <div class="hover-wrap">
+                                <h5 class="title">{{ product.name }}</h5>
+                                <span class="price">{{ product.tax }}</span>
+                            </div>
+                        </a>
+                        <a href="{{ product.href }}" class="desktop-mobile-product">
+                            <div class="img-wrap">
+                                <img src="{{ product.thumb }}" alt="">
+                            </div>
+                            {% if product.special %}
+                                <div class="label">-{{ product.percent_special }}%</div>
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>  <!-- col end.// -->
+            {% endfor %}
+            {# {% if yes_again %}
+                <div class="col-12 text-center">
+                    <a onclick="showMoreCategoryProduct({{ limit }})" class="add-more" style="cursor:pointer">{{ show_more }}</a>
+                </div> <!-- col end.// -->
+            {% endif %} #}
+
+            <input type="hidden" id="limitCategory" value="{{ limit }}">
+            <input type="hidden" id="yes_againCategory" value="{{ yes_again }}">  
+
+        </div> <!-- row end.// -->
+    {% else %}
+        <div class="row justify-content-center py-5">
+            <div class="col-12 col-md-10 col-lg-8 text-center">
+                <div class="fdb-box">
+                    <p class="lead">
+                        {{ text_empty }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+
+
+    <script>
+
+
+        $(window).scroll(function() {
+            if(($(window).scrollTop() >= ($('#categoryProducts').offset().top + $('#categoryProducts').outerHeight() - window.innerHeight)) && (($('#categoryProducts').offset().top + $('#categoryProducts').outerHeight() - window.innerHeight) > 0)){
+                limit = Number($('#limitCategory').val());
+                yes_again = Number($('#yes_againCategory').val());
+                if(yes_again)
+                {
+                    limit = limit + 30;
+                    var path = getUrlParameter('manufacturer_id');
+                    var filter = getUrlParameter('filter');
+                    if(filter)
+                    {
+                        $('#showMoreModal').modal('show');
+                        $('#categoryProducts').load('index.php?route=product/manufacturer/infoManafacturer&limit='+ limit + '&filter=' + filter + '&manufacturer_id=' + path +' #categoryProducts',function(){
+                            setTimeout(function(){
+                                $('#showMoreModal').modal('hide');
+                            },1000);
+                        });
+                    }
+                    else
+                    {
+                        $('#showMoreModal').modal('show');
+                        $('#categoryProducts').load('index.php?route=product/manufacturer/infoManafacturer&limit='+ limit + '&manufacturer_id=' + path +' #categoryProducts',function(){
+                            setTimeout(function(){
+                                $('#showMoreModal').modal('hide');
+                            },1000);
+                        });
+                    }
+
+                }
+            }
+        });
+
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+    </script>

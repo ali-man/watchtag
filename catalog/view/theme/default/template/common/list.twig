@@ -1,0 +1,106 @@
+{{ header }}
+<!--start search-block-->
+<section class="page-lenta mt-5 mb-5">
+    <div class="container">
+        
+        <div class="row">
+            
+                <div class="col-12  col-sm-12 col-md-12 col-lg-3">
+                    <div class="hot-deals sidebar">
+                        <h3> {{ hot_products_text }}</h3>
+                        {% if hot_products %}
+                            <div  class="hot-deals-brendi row">
+                                {% for hot_product in hot_products %}
+                                    <div class="praduc-left col-3 col-md-3 col-lg-12">
+                                        <a href="#" onclick="return false;" class="lent-desctop  desktop-product modal-product">
+                                            <input type="hidden" class="product_id" value="{{ hot_product.product_id }}">
+                                            
+                                            <div class="bordre-img">
+                                                <img src="{{ hot_product.thumb }}" alt="">
+                                            </div>
+                                            <div class="product-left-info">
+                                                <span class="name-of-product">{{ hot_product.name }}</span>
+                                                <span class="second-line">{{ hot_product.tax }}</span>
+                                            </div>
+                                        </a>
+                                        <a href="{{ hot_product.href }}" class="lent-desctop desktop-mobile-product">
+                                            <div class="bordre-img">
+                                                <img src="{{ hot_product.thumb }}" alt="">
+                                            </div>
+                                            <div class="product-left-info">
+                                                <span class="name-of-product">{{ hot_product.name }}</span>
+                                                <span class="second-line">{{ hot_product.tax }}</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="fdb-box">
+                                <p class="lead" style="font-size: 0.85rem;">
+                                    {{ text_empty_hot }}
+                                </p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>  <!--end col //-->
+
+                
+                {{ random }}
+
+
+                <div class="col-12 col-sm-3">
+                    <div class="filters-right-block big">
+                        {{ filterD }}
+                    </div>
+                </div> <!--end col //-->
+
+        </div>  <!--end row //-->   
+ 
+    </div>  <!--end container //-->
+</section>
+<!--start search-block-->
+
+<!-- Modal -->
+<div class="mymoodal modal right fade filternawZ" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+    <div class="shut-ix click-filter"  data-dismiss="modal" aria-label="Close">
+        <span class="span2"></span>
+        <span class="span3"></span>
+    </div>    
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span>
+            </button> -->
+            
+                <div class="modal-body">
+                    {{ filterM }}
+                </div>
+            
+
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div>
+<!-- modal -->
+
+<div class="modal fade cardadd" id="exampleModalCart" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="modal-cartadd">Succesfully added to cart</div>
+                <div class="modaladd-tuw">
+                    <a href="#">Checkout</a>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Continue</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{ footer }}

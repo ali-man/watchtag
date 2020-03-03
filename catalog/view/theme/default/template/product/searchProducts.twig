@@ -1,0 +1,187 @@
+        
+            <div class="row">
+                
+                <div class="col-12">
+                    <h2 class="block-title mb-3">{{ heading_title }}</h2>
+                </div><!--end col //-->
+                
+                <div class="col-12 col-sm-9">
+
+                    <form class="for-select">
+                        <div class="form-group">
+                            <input type="hidden" name="search_text" value="{{ search }}"/>
+                            {% for filter_group in filter_groups %}
+                                {% if loop.index == 1 %}
+                                    <select class="form-control filter" name="brand" id="exampleFormControlSelect1">
+                                        {% if brand == 0 %}
+                                            <option value="0">{{ filter_group.name }}</option>
+                                        {% endif %}
+                                        {% for filter in filter_group.filter %}
+                                            {% if brand == filter.filter_id %}
+                                                <option value="{{ filter.filter_id }}" selected="selected">{{ filter.name }}</option>
+                                            {% else %}
+                                                <option value="{{ filter.filter_id }}">{{ filter.name }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                {% elseif loop.index == 2 %}
+                                    <select class="form-control filter" name="condition" id="exampleFormControlSelect1">
+                                        {% if condition == 0 %}
+                                            <option value="0">{{ filter_group.name }}</option>
+                                        {% endif %}
+                                        {% for filter in filter_group.filter %}
+                                            {% if condition == filter.filter_id %}
+                                                <option value="{{ filter.filter_id }}" selected="selected">{{ filter.name }}</option>
+                                            {% else %}
+                                                <option value="{{ filter.filter_id }}">{{ filter.name }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                {% elseif loop.index == 3 %}
+                                    <select class="form-control filter" name="gender" id="exampleFormControlSelect1">
+                                        {% if gender == 0 %}
+                                            <option value="0">{{ filter_group.name }}</option>
+                                        {% endif %}
+                                        {% for filter in filter_group.filter %}
+                                            {% if gender == filter.filter_id %}
+                                                <option value="{{ filter.filter_id }}" selected="selected">{{ filter.name }}</option>
+                                            {% else %}
+                                                <option value="{{ filter.filter_id }}">{{ filter.name }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </form>
+
+                </div><!--end col //-->
+                {% if products %}
+                    <div class="col-12 col-sm-3">
+                        <div class="filter-sum">
+                            <form class="for-select">
+                                <div class="form-group">
+                                    <select id="input-sort" class="form-control sort" onchange="location = this.value;">
+                                        {% for sorts in sorts %}
+                                        {% if sorts.value == '%s-%s'|format(sort, order) %}
+                                        <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
+                                        {% else %}
+                                        <option value="{{ sorts.href }}">{{ sorts.text }}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!--end col //-->
+                {% endif %}
+                
+            </div>  <!--end row //-->
+            {% if products %}
+                <div id="categoryProducts">
+                    <div class="row nonePaddding" id="products">
+                        {% for product in products %}
+                            <div class="col-4  col-md-4  col-xl-4">
+                                <div class="item-product">
+                                                    
+                                    <a class="desktop-product modal-product">
+                                        <input type="hidden" class="product_id" value="{{ product.product_id }}">
+                                    
+                                        <div class="img-wrap">
+                                            <img src="{{ product.thumb }}" alt="">
+                                        </div>
+                                        {% if product.special %}
+                                            <div class="label">-{{ product.percent_special }}%</div>
+                                        {% endif %}
+                                        <div class="hover-wrap">
+                                            <h5 class="title">{{ product.name }}</h5>
+                                            <span class="price">{{ product.tax }}</span>
+                                        </div>
+                                    </a>
+                                    <a href="{{ product.href }}" class="desktop-mobile-product">
+                                        <div class="img-wrap">
+                                            <img src="{{ product.thumb }}" alt="">
+                                        </div>
+                                        {% if product.special %}
+                                            <div class="label color1">-{{ product.percent_special }}%</div>
+                                        {% endif %}
+
+                                    </a>
+                                </div>
+                            </div>  <!-- col end.// -->
+                        {% endfor %}
+                        {# {% if yes_again %}
+                            <div class="col-12 text-center">
+                                <a onclick="showMoreCategoryProducts({{ limit }})" class="add-more" style="cursor:pointer">{{ show_more }}</a>
+                            </div> <!-- col end.// -->
+                        {% endif %} #}
+                        <input type="hidden" id="limitSearch" value="{{ limit }}">
+                        <input type="hidden" id="yes_againSearch" value="{{ yes_again }}"> 
+                    </div> <!-- row end.// -->
+                </div>
+
+            {% else %}
+                <section class="cart-is-empty none_el">
+                    <div class="container py-5 my-5 conimg">
+                        <div class="row justify-content-center py-5">
+                            <div class="col-12 col-md-10 col-lg-8 text-center">
+                                <div class="fdb-box">
+                                    <p class="lead">
+                                        {{ text_empty }}
+                                    </p>
+                                    <div class="sotseti d-flex justify-content-center">
+                                        <a href="#"><img class="imgi" src="catalog/view/theme/default/images/telgramN.png" alt=""></a>
+                                        <a href="#"><img class="imgi" src="catalog/view/theme/default/images/vaybieN.png" alt=""></a>
+                                        <a href="#"> <img class="imgi" src="catalog/view/theme/default/images/watsapN.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </section>
+            {% endif %}
+<script>
+
+    $(window).scroll(function() {
+        if(($(window).scrollTop() >= ($('#categoryProducts').offset().top + $('#categoryProducts').outerHeight() - window.innerHeight)) && (($('#categoryProducts').offset().top + $('#categoryProducts').outerHeight() - window.innerHeight) > 0)){
+            limit = Number($('#limitSearch').val());
+            yes_again = Number($('#yes_againSearch').val());
+            if(yes_again)
+            {
+                limit = limit +30
+                $('#showMoreModal').modal('show');
+                $('#categoryProducts').load(window.location.href + '&limit='+ limit +' #products',function(){
+                    setTimeout(function(){
+                        $('#showMoreModal').modal('hide');
+                    },1000);
+                });
+            }
+        }
+    });
+
+    $('.filter').on('change', function(){
+        url = 'index.php?route=product/search';
+
+        var search = $('input[name=\'search\']').prop('value');
+
+        if (search) {
+            url += '&search=' + encodeURIComponent(search);
+        }
+
+
+        var brand_id = $('select[name=\'brand\']').prop('value');
+        if (brand_id > 0) {
+            url += '&brand=' + encodeURIComponent(brand_id);
+        }
+        var condition_id = $('select[name=\'condition\']').prop('value');
+        if (condition_id > 0) {
+            url += '&condition=' + encodeURIComponent(condition_id);
+        }
+        var gender_id = $('select[name=\'gender\']').prop('value');
+        if (gender_id > 0) {
+            url += '&gender=' + encodeURIComponent(gender_id);
+        }
+        location = url;
+    });
+
+</script>

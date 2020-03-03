@@ -1,0 +1,48 @@
+<li class="dropdown_item fowor-item" id="wishlist-total">
+    <a href="#" class="drp fowor-icon"></a>
+    <span class="shtuc" id="total-quantity">{{ text_wishlist }}</span>
+    <ul class="dropdown_body">
+        <li class="d_body-block-itme reload-section">
+            {% if products %}
+                <ul class="drp_menu-body">
+                
+                    {% for product in products %}
+                        <li>
+                            <div class="cart-products-img-name d-flex">
+                                <a  class="cart-products-link d-flex modal-product">
+                                    <input type="hidden" class="product_id" value="{{ product.product_id }}">
+                          
+                                    <div class="cart-products-img">
+                                            <img src="{{ product.thumb }}" alt="">
+                                    </div>
+                                    <div class="cart-name-number">
+                                        <div class="cart-products-name">
+                                            {{ product.name }}
+                                        </div>
+                                    </div>
+                                </a>
+                                <span class="remove_link" >
+                                    <a onclick="wishlistModal.remove({{ product.product_id }});"></a>
+                                </span> 
+                            </div>
+                        </li>
+                    {% endfor %}
+                    
+                </ul>
+            {% else %}
+                <ul class="drp_menu-body">
+                    <li>
+                        <div class="cart-products-img-name d-flex">
+                            <p class="car-text">
+                                {{ text_empty }}
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            {% endif %}
+        </li>
+        <li class="d_body-block-itme footer-item">
+            <a href="{{ wishlist }}">{{ text_wish }}</a>
+        </li>
+    </ul>
+</li> <!--end li  dropdown_item-->

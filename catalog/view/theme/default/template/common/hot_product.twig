@@ -1,0 +1,90 @@
+<div id="hotProductReload">
+    {% if hot_products %}
+        <div class="row nonePaddding" id="hot_product">
+            {% for key,hot_product in hot_products %}
+                <div class="col-4  col-md-4  col-xl-4">
+                    <div class="item-product">
+                        <a href="#" onclick="return false;" class="desktop-product modal-product" id="hot{{ key }}">
+                            
+                            <input type="hidden" class="type_product" value="hot">
+
+                            <input type="hidden" class="product_id" value="{{ hot_product.product_id }}">
+                            {% if key == 0 %}
+                                <input type="hidden" class="prev_product_id" value="{{ hot_products|last.product_id }}">
+                            {% else %}
+                                <input type="hidden" class="prev_product_id" value="{{ hot_products[key-1].product_id }}">
+                            {% endif %}
+
+
+                            {% if key == hot_products|length - 1 %}
+                                <input type="hidden" class="next_product_id" value="{{ hot_product|first.product_id }}">
+                            {% else %}
+                                <input type="hidden" class="next_product_id" value="{{ hot_products[key+1].product_id }}">
+                            {% endif %}
+
+                            <input type="hidden" class="key" value="{{ key }}">
+                            <input type="hidden" class="array_length" value="{{ hot_products|length - 1 }}">
+
+                            <div class="img-wrap">
+                                <img src="{{ hot_product.thumb }}" alt="">
+                            </div>
+                            {% if hot_product.special %}
+                                <div class="label">-{{ hot_product.percent_special }}%</div>
+                            {% endif %}
+                            <div class="hover-wrap">
+                                <h5 class="title">{{ hot_product.name }}</h5>
+                                <span class="price">{{ hot_product.tax }}</span>
+                            </div>
+                        </a>
+                        <a href="{{ hot_product.href }}" class="desktop-mobile-product">
+                            <div class="img-wrap">
+                                <img src="{{ hot_product.thumb }}" alt="">
+                            </div>
+                            {% if hot_product.special %}
+                                <div class="label color1">-{{ hot_product.percent_special }}%</div>
+                            {% endif %}
+                        </a>
+                    </div>                               
+                </div>  <!-- col end.// -->
+            {% endfor %} 
+            {# {% if yes_again %}
+                <div class="col-12 text-center">
+                    <a onclick="showMoreHotProduct({{ limit }})" class="add-more" style="cursor:pointer">{{ show_more }}</a>
+                </div> <!-- col end.// -->
+            {% endif %} #}
+        <input type="hidden" id="limitHot" value="{{ limit }}">
+        <input type="hidden" id="yes_againHot" value="{{ yes_again }}">  
+        </div> <!-- row end.// -->
+    {% else %}
+        <div class="row justify-content-center py-5">
+            <div class="col-12 col-md-10 col-lg-8 text-center">
+                <div class="fdb-box">
+                    <p class="lead">
+                        {{ text_empty_hot }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+
+<script>
+        $(window).scroll(function() {
+            if(($(window).scrollTop() >= ($('#hotProductReload').offset().top + $('#hotProductReload').outerHeight() - window.innerHeight)) && (($('#hotProductReload').offset().top + $('#hotProductReload').outerHeight() - window.innerHeight) > 0)){
+                limit = Number($('#limitHot').val());
+                yes_again = Number($('#yes_againHot').val());
+                if(yes_again)
+                {
+                    
+                    limit = limit + 30;
+                    $('#showMoreModal').modal('show');
+                    $('#hotProductReload').load('index.php?route=common/home/infoHotProduct&limit='+ limit +' #hotProductReload',function(){
+                        setTimeout(function(){
+                            $('#showMoreModal').modal('hide');
+                        },1000);
+                    });
+                }
+            }
+        });
+</script>

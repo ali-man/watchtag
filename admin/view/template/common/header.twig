@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+<head>
+<meta charset="UTF-8" />
+<title>{{ title }}</title>
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<script type="text/javascript" src="view/javascript/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="view/javascript/bootstrap/js/bootstrap.min.js"></script>
+<link href="view/stylesheet/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="view/javascript/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+<script src="view/javascript/jquery/datetimepicker/moment/moment.min.js" type="text/javascript"></script>
+<script src="view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js" type="text/javascript"></script>
+<script src="view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<link href="view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet" media="screen" />
+<link type="text/css" href="view/stylesheet/stylesheet.css" rel="stylesheet" media="screen" />
+{% for style in styles %}
+<link type="text/css" href="{{ style.href }}" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+<script src="view/javascript/common.js" type="text/javascript"></script>
+{% for script in scripts %}
+<script type="text/javascript" src="{{ script }}"></script>
+{% endfor %}
+<style>
+.suggest-quantity > a{
+  position:relative;
+  z-index: 1;
+}
+.suggest-quantity a span {
+  position: absolute;
+  top: 3px;
+  right: 28px;
+  z-index: 9;
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #e3503e;
+  color: #ffffff;
+  font-size: 10px;
+  text-align: center;
+  line-height: 15px;
+}
+
+.message-quantity > a{
+  position:relative;
+  z-index: 1;
+}
+.message-quantity a span {
+    position: absolute;
+    top: 3px;
+    right: 28px;
+    z-index: 9;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #e3503e;
+    color: #ffffff;
+    font-size: 10px;
+    text-align: center;
+    line-height: 15px;
+}
+.service-message-quantity > a{
+  position:relative;
+  z-index: 1;
+}
+.service-message-quantity a span {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    z-index: 9;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #e3503e;
+    color: #ffffff;
+    font-size: 10px;
+    text-align: center;
+    line-height: 15px;
+}
+</style>
+</head>
+<body>
+<div id="container">
+<header id="header" class="navbar navbar-static-top">
+  <div class="container-fluid">
+
+  
+    <div id="header-logo" class="navbar-header"><a href="{{ home }}" class="navbar-brand"><img src="view/image/logo.png" alt="{{ heading_title }}" title="{{ heading_title }}" /></a></div>
+    <a href="#" id="button-menu" class="hidden-md hidden-lg"><span class="fa fa-bars"></span></a>{% if logged %}
+    <audio id="audio" src="/admin/view/image/plucky.mp3" ></audio>
+    
+
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ image }}" alt="{{ firstname }} {{ lastname }}" title="{{ username }}" id="user-profile" class="img-circle" />{{ firstname }} {{ lastname }} <i class="fa fa-caret-down fa-fw"></i></a>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li><a href="{{ profile }}"><i class="fa fa-user-circle-o fa-fw"></i> {{ text_profile }}</a></li>
+          <li class="suggest-quantity"><a href="{{ suggests }}"><i class="fa fa-envelope fa-fw"></i> Offered price <span class="cart-quantity">{{ quantityMessage }}</span></a></li>
+          <li class="message-quantity"><a href="{{ message }}"><i class="fa fa-envelope fa-fw"></i> {{ message_text }} <span class="cart-quantity">{{ quantityMessage }}</span></a></li>  
+          <li class="service-message-quantity"><a href="{{ service_message }}"><i class="fa fa-envelope fa-fw"></i> {{ service_message_text }} <span class="cart-quantity">{{ quantityServiceMessage }}</span></a></li>  
+          <li role="separator" class="divider"></li>
+          <li class="dropdown-header">{{ text_store }}</li>
+          {% for store in stores %}
+          <li><a href="{{ store.href }}" target="_blank">{{ store.name }}</a></li>
+          {% endfor %}
+          <li role="separator" class="divider"></li>
+          <li class="dropdown-header">{{ text_help }}</li>
+          <li><a href="http://www.opencart.com" target="_blank"><i class="fa fa-opencart fa-fw"></i> {{ text_homepage }}</a></li>
+          <li><a href="http://docs.opencart.com" target="_blank"><i class="fa fa-file-text-o fa-fw"></i> {{ text_documentation }}</a></li>
+          <li><a href="http://forum.opencart.com" target="_blank"><i class="fa fa-comments-o fa-fw"></i> {{ text_support }}</a></li>
+        </ul>
+      </li>
+      <li><a href="{{ logout }}"><i class="fa fa-sign-out"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_logout }}</span></a></li>
+    </ul>
+    {% endif %} </div>
+</header>
+<script>
+    $(document).ready(function() {
+        setInterval(function() { getQuantityMessage();getQuantityServiceMessage();getQuantitySuggests(); },5000);
+
+        function getQuantitySuggests() {
+          $.ajax({
+            type: "GET",
+            url: '/index.php?route=common/suggest/getQuantity',
+            async: false
+          }).success(function(json) {
+
+            var currentValue = $('.suggest-quantity').find('a').find('span').html();
+
+            if(parseInt(json) > parseInt(currentValue)) {
+              $('#audio')[0].play();
+              $('.suggest-quantity').find('a').find('span').html(parseInt(json));
+
+            }
+          });
+        }
+        function getQuantityMessage() {
+            $.ajax({
+              type: "GET",
+              url: '/index.php?route=common/message/getQuantity',
+              async: false
+            }).success(function(json) {
+
+              var currentValue = $('.message-quantity').find('a').find('span').html();
+
+              if(parseInt(json) > parseInt(currentValue)) {
+                $('#audio')[0].play();
+                $('.message-quantity').find('a').find('span').html(parseInt(json));
+
+              }
+            });
+        }
+        function getQuantityServiceMessage() {
+            $.ajax({
+              type: "GET",
+              url: '/index.php?route=ajax/service_message/getQuantity',
+              async: false
+            }).success(function(json) {
+
+              var currentValue = $('.service-message-quantity').find('a').find('span').html();
+
+              if(parseInt(json) > parseInt(currentValue)) {
+                $('#audio')[0].play();
+                $('.service-message-quantity').find('a').find('span').html(parseInt(json));
+
+              }
+            });
+        }
+
+    });
+</script>

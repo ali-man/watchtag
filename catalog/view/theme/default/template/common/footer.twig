@@ -1,0 +1,549 @@
+
+<!-- start  mobil fo0ter-->
+<div class="footer-mobile-five-blocks">
+    <div class="mobile-footer">
+        <div class="item-footer-icon"><a class="home-mobil {{ cation_home ? 'cation' : '' }}" href="{{ home }}"></a></div>
+        <div class="item-footer-icon"><a class="yur-mobil {{ cation_wish ? 'cation' : '' }}" href="{{ wishlist }}"><span class="shtuc" id="total-quantity-mobile">{{ text_wishlist }}</span></a></div>
+        <div class="item-footer-icon"><a class="sarche-mobil {{ cation_search ? 'cation' : '' }}" href="{{ search }}"></a></div>
+        <div class="item-footer-icon"><a class="lenta-mobil {{ cation_list ? 'cation' : '' }}" href="{{ list }}"></a></div>
+        <div class="item-footer-icon"><a class="user-mobil {{ cation_user ? 'cation' : '' }}" href="{{ user }}"></a></div>
+    </div>
+</div>
+<!-- end  mobil fo0ter-->
+
+<!-- start footer -->
+
+            {{ yandex_metrika_html_code }}
+            <script type="text/javascript">
+                window.dataLayer = window.dataLayer || [];
+                function sendEcommerceAdd(id, quantity) {
+                   $.ajax({
+                        url: 'index.php?route=extension/payment/yandex_money/productInfo',
+                        type: 'post',
+                        data: 'id=' + id,
+                        dataType: 'json',
+                        success: function(json) {
+                            json.quantity = quantity;
+                            dataLayer.push({ecommerce: {add: {products: [json]}}});
+                        }
+                    });
+                }
+                $(window).on("load", function () {
+                    var opencartCartAdd = cart.add;
+                    cart.add = function (product_id, quantity) {
+                        opencartCartAdd(product_id, quantity);
+                        sendEcommerceAdd(product_id, typeof(quantity) !== 'undefined' ? parseInt(quantity) : 1);
+                    };
+
+                    $('#button-cart').on('click', function() {
+                        var ecommerce_product = new Array();
+                        sendEcommerceAdd($('#product input[name="product_id"]').val(), parseInt($('#product input[name="quantity"]').val()));
+                    });
+                });
+            </script>
+            
+<footer class="footer bg-white">
+    <div class="footer-small">
+        <div class="container">
+            <nav class="navbar navbar-expand-md fmenu">
+                <ul class="navbar-nav mr-auto ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?route=information/about_us">{{ about_us }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?route=information/service">{{ services }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/upload/index.php?route=information/contact">{{ contact_us }}</a>
+                    </li>
+                    {% for category in categories%}
+                        <li>
+                            <a class="nav-link" href="{{ category.href }}">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="footer-large mt-4">
+        <div class="container">
+            <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="sotsetiy_footer">
+                            <a href="#"> <img src="catalog/view/theme/default/images/telgramN.png" alt=""> </a>
+                            <a href="#"> <img src="catalog/view/theme/default/images/vaybieN.png" alt=""> </a>
+                            <a href="#"> <img src="catalog/view/theme/default/images/watsapN.png" alt=""> </a>
+                        </div>
+                        <span class="copyright">2019 - Copyright Название организации</span>
+                    </div>
+                    <div class="col-12 col-md-4 footer_tel">
+                        <span class="copyright">Номер телефона</span>
+                        <a href="#">(+99899)000-00-00</a>
+                        <a href="#">(+99899)000-00-00</a>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-right">
+                        <p class="lead text-right">
+                            <a href="#" class="mx-1"><img src="catalog/view/theme/default/images/icon/mastercard.png" alt="mastercard"></a>
+                            <a href="#" class="mx-1"><img src="catalog/view/theme/default/images/icon/visa.png" alt="visa"></a>
+                            <a href="#" class="mx-1"><img src="catalog/view/theme/default/images/icon/paypal.png" alt="paypal"></a>
+                            <a href="#" class="mx-1"><img src="catalog/view/theme/default/images/icon/amazon.png" alt="amazon"></a>
+                            <a href="#" class="mx-1"><img src="catalog/view/theme/default/images/icon/amex.png" alt="amex"></a>
+                        </p>
+                        <span class="copyright">
+                            <a href="#">
+                                Разработана GOOD ONE
+                            </a>
+                        </span>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<section class="naw_my_gam">
+    <div class="naw_mobil_menu">
+        <div class="naw_mobil_menu-blocks">
+            <!-- <div  class="shut-ix click-filter2">
+                <span class="span2"></span>
+                <span class="span3"></span>
+            </div> -->
+            <div class="filters-right-block">
+                <div class="mag_topM">
+
+                    <div class="linya">
+                        <div class="ixel click-filter2">
+                            <span class="span2"></span>
+                            <span class="span3"></span>
+                        </div>
+                        <div class="summ_la">
+                            <form action="{{ actionLanguage }}" class="summ_la" method="post" enctype="multipart/form-data" id="form-language">
+                                {% for language in languages %}
+                                    <a style="text-transform: uppercase;" href="#" class="{% if codeLanguage ==  language.code %}action{% endif %} language-select" name="{{ language.code }}">{{ language.name }}</a>
+                                    <span>/</span>
+                                {% endfor %}
+                                <input type="hidden" name="code" value="" />
+                                <input type="hidden" name="redirect" value="{{ redirect }}" />
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mag_cocntM">
+                    <div class="nawe_menuright">
+                        <a href="/index.php?route=information/about_us"><img src="catalog/view/theme/default/images/icon/hours.svg" alt="">{{ about_us }}</a>
+                        <a href="/index.php?route=information/service"><img src="catalog/view/theme/default/images/icon/hours.svg" alt="">{{ services }}</a>
+                        <a href="/index.php?route=information/contact"><img src="catalog/view/theme/default/images/icon/hours.svg" alt="">{{ contact_us }}</a>
+                        {% for category in categories%}
+                            <a class="nav-link" href="{{ category.href }}"><img src="catalog/view/theme/default/images/icon/hours.svg" alt="">{{ category.name }}</a>
+                        {% endfor %}
+                    </div>
+                    <div class="mag_footerM">
+                        <form action="{{ actionCurrency }}" method="post" enctype="multipart/form-data" id="form-currency">
+                            {% for currency in currencies %}
+                                <a style="text-transform: uppercase;" href="#" class="{% if codeCurrency ==  currency.code %}action{% endif %} currency-select" name="{{ currency.code }}">{{ currency.code }}</a>
+                                <span>/</span>
+                            {% endfor %}
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end footer -->
+
+<!-- Start Modals-->
+
+<!-- call you -->
+{# <section class="call-you-madal">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content my-call-you">
+
+                <div class="call-you-forms">
+                    <div class="block-img"></div>
+                    <span class="entrance_title">{{ callback_text }}</span>
+                    <div class="nawphtel">
+                        <a href="#">+99890 000 00 00</a>
+                        <a href="#">+99890 000 00 00</a>
+                    </div>
+                    <div class="nawmail">
+                        <a href="#">watchtag@gmail.com</a>
+                    </div>
+                    <div class="nawcotca">
+                        <p class="lead">
+                            <a href="#" class="mx-1"><img src="catalog/view/theme/default/images/icon/mastercard.png" alt="mastercard"></a>
+                            <a href="#" class="mx-1"><img src="catalog/view/theme/default/images/icon/visa.png" alt="visa"></a>
+                            <a href="#" class="mx-1"><img src="catalog/view/theme/default/images/icon/paypal.png" alt="paypal"></a>
+                        </p>
+                    </div>
+                    <form class="needs-validation" action="/index.php?route=common/message/add" method="post" id="callBackForm">
+                        <div class="form-row entrance">
+                            <div class="col-md-12 mb-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend icon-login">
+                                            <span class="input-group-text">
+                                                <img src="catalog/view/theme/default/images/icon/tel.copy.svg" alt="">
+                                            </span>
+                                    </div>
+                                    <input class="form-control" type="tel" value="{{ user_phone ? user_phone : '' }}" id="example-tel-input3" name="phone" placeholder="{{ phone_number }}" >
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="type" value="callback" />
+                        <button class="btn btn-primary" type="submit">{{ wait_call }}</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section> #}
+
+
+<section class="call-you-madal">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content my-call-you">
+
+                <div class="call-you-forms">
+                    <div class="block-img"></div>
+                    
+                    <div class="new-cont-modal w-100 text-left">
+                        <div class="item_naw_modal_con mb-2">
+                            <div><span>Телефон:</span></div>
+                            <a href="tel:+7 (495) 152-75-95">+7 (495) 152-75-95;</a>
+                            <a href="tel:+7 (495) 152-75-95">+7 (495) 152-75-95;</a>
+                        </div>
+                        <div class="item_naw_modal_con mb-2">
+                            <div><span>E-mail:</span></div>
+                            <a href="#">info@timpogram.com</a>
+                            <a href="#">timpogram@gmail.com</a>
+                        </div>
+                        <div class="item_naw_modal_con mb-2">
+                            <div><span>Социальная сеть:</span></div>
+                            <span class="d-flex">
+                                <a href="#"><i class="iconWhatsapp"></i></a>
+                                <a href="#"><i class="iconViber"></i></a>
+                                <a href="#"><i class="iconTelgram"></i></a>
+                            </span>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- call you -->
+{# <section class="call-you-madal">
+    <div class="modal fade" id="exampleModalCentersms" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content feedback">
+
+                <div class="call-you-forms">
+                    <div class="block-img"></div>
+                    <form class="needs-validation" action="/index.php?route=common/message/add" method="post" id="questionForm">
+                        <span class="entrance_title">{{ feedback }}</span>
+                        <div class="form-row entrance">
+                            <div class="col-md-12 mb-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend icon-login">
+                                            <span class="input-group-text">
+                                                <img src="catalog/view/theme/default/images/icon/icon-login.svg" alt="">
+                                            </span>
+                                    </div>
+                                    <input  class="form-control" type="text" id="example-text-input2" name="name" value="{{ user_name ? user_name : '' }}" placeholder="{{ full_name }}" >
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend icon-login">
+                                            <span class="input-group-text">
+                                                <img src="catalog/view/theme/default/images/icon/tel.copy.svg" alt="">
+                                            </span>
+                                    </div>
+                                    <input class="form-control" type="text"  id="example-tel-input2" name="phone"  value="{{ user_phone ? user_phone : '' }}" placeholder="{{ phone_number }}" >
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend icon-login">
+                                            <span class="input-group-text">
+                                                <img src="catalog/view/theme/default/images/icon/shape2.svg" alt="">
+                                            </span>
+                                    </div>
+                                    <input class="form-control" type="email"  id="example-email-input" value="{{ user_email ? user_email : '' }}" name="mail" placeholder="{{ email }}" >
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="exampleTextarea" name="text" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="type" value="question" />
+                        <button class="btn btn-primary" type="submit">{{ send }}</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section> #}
+
+
+<section class="call-you-madal">
+    <div class="modal fade" id="exampleModalCentersms" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content feedback">
+
+                <div class="call-you-forms">
+                    <div class="block-img"></div>
+                    <span class="entrance_title">{{ callback_text }}</span>
+                    <form class="needs-validation  mt-3" action="/index.php?route=common/message/add" method="post" id="callBackForm">
+                        <div class="form-row entrance">
+                            <div class="col-md-12 mb-3">
+                                <div class="input-group">
+                                    <div class="input-group-prepend icon-login">
+                                            <span class="input-group-text">
+                                                <img src="catalog/view/theme/default/images/icon/tel.copy.svg" alt="">
+                                            </span>
+                                    </div>
+                                    <input class="form-control" type="tel" value="{{ user_phone ? user_phone : '' }}" id="example-tel-input3" name="phone" placeholder="{{ phone_number }}" >
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="type" value="callback" />
+                        <button class="btn btn-primary" type="submit">{{ wait_call }}</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- modal praduct -->
+<section class="call-you-madal product-modal">
+    <div class="modal fade bd-example-modal-lg" id="pragucModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <button class="leftIconModal left"></button>
+            <div class="modal-content" id="modalContent">
+
+                <div class="row mystyle" >
+                    <div class="col-12  col-sm-12 col-md-7  col-xl-7">
+                        <div id="carousel2_indicator" class="carousel slide carousel-fade"  data-interval="false">
+                        </div>
+                    </div>
+                    <div class="col-12  col-sm-12 col-md-5  col-xl-5">
+                        <div class="produc-modal-info">
+                            <div class="produc-modal-info-top mt-2">
+                                <div class="p-title-modal mb-3">
+                                </div>
+                                <div class="p-text-modal mb-3">
+                                </div>
+                                <div class="p-cost-modal">
+                                    <span >{{ price }}</span>
+                                    <span class="discount-price"></span>
+                                    <span class="real-price"></span>
+                                </div>
+                                <div class="prid_sum modal_s">
+                                    <a href="#">{{ offered_price }}</a>
+                                </div>
+                                <div class="hidding-text" id="accordion">
+                                    <div class="card">
+                                        <div class="card-header" id="headingOneq">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneModal" aria-expanded="true" aria-controls="collapseOneModal">
+                                                    {{ characteristics }}
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapseOneModal" class="collapse" aria-labelledby="headingOneq" data-parent="#accordion" style="">
+                                            <div class="card-body  nonepadd">
+                                                <div class="collapse2">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="produc-modal-info-footer">
+                                <div class="produc-modal-left">
+                                    <div class="favorite-icon">
+                                        <span  class="btn-favorite"></span>
+                                    </div>
+
+
+                                    <div class="social-network-blocks">
+                                            <span class="social-network" data-toggle="modal"
+                                                  data-target="#exampleModalSocial"></span>
+                                    </div>
+                                </div>
+
+                                <div class="modal-cart-icon">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="cart-icon"></i>
+                                        {{ to_basket }}
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="leftIconModal right"></button>
+            <div  id="loader">
+
+                <div class="lds-spinner2">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="call-you-madal">
+    <div class="modal fade bd-example-modal-lg" id="showMoreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div  id="loader" >
+
+                <div class="lds-spinner2">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--End Modals-->
+
+<div class="modal fade satsalemodal" id="exampleModalSocial" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title modtilte" id="exampleModalLongTitle">Поделиться</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body link_mo_dset">
+
+                <div class="mo_satsal modal-facebook">
+                    <a href="#">
+                        <i class="icon-f mo_satsal-icon"></i>
+                        <span>Поделиться на Facebook</span>
+                    </a>
+                </div>
+                <div class="mo_satsal modal-facebook">
+                    <a href="#">
+                        <i class="icon-Mess mo_satsal-icon"></i>
+                        <span>Поделиться в Messenger</span>
+                    </a>
+                </div>
+                <div class="mo_satsal modal-facebook">
+                    <a href="#">
+                        <i class="icon-twi mo_satsal-icon"></i>
+                        <span>Поделиться в Twitter</span>
+                    </a>
+                </div>
+                <div class="mo_satsal modal-facebook">
+                    <a href="#">
+                        <i class="icon-mail mo_satsal-icon"></i>
+                        <span>Поделиться по электронной почте</span>
+                    </a>
+                </div>
+                <div class="mo_satsal modal-facebook">
+                    <a href="#">
+                        <i class="icon-link mo_satsal-icon"></i>
+                        <span>Копировать ссылку</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="catalog/view/js/popper.min.js"></script>
+<script src="catalog/view/js/bootstrap.min.js"></script>
+<script src="catalog/view/js/owl.carousel.min.js"></script>
+<script src="catalog/view/js/mina.js"></script>
+<script src="catalog/view/js/my-script.js"></script>
+<script src="catalog/view/js/jquery.toast.js"></script>
+<!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+</body></html>

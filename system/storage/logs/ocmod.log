@@ -1,0 +1,1001 @@
+2019-06-01 7:07:22 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Упрощенный заказ [Custom Quick Checkout]
+
+FILE: catalog/controller/checkout/cart.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/model/setting/extension.php
+CODE: SELECT * FROM " . DB_PREFIX . "extension WHERE `type` =
+LINE: 30
+----------------------------------------------------------------
+2019-06-01 7:08:34 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: Упрощенный заказ [Custom Quick Checkout]
+
+FILE: catalog/controller/checkout/cart.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/model/setting/extension.php
+CODE: SELECT * FROM " . DB_PREFIX . "extension WHERE `type` =
+LINE: 30
+----------------------------------------------------------------
+2019-06-01 7:09:20 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: SVG-support
+
+FILE: admin/controller/common/filemanager.php
+CODE: jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+
+FILE: catalog/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+----------------------------------------------------------------
+MOD: Упрощенный заказ [Custom Quick Checkout]
+
+FILE: catalog/controller/checkout/cart.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/model/setting/extension.php
+CODE: SELECT * FROM " . DB_PREFIX . "extension WHERE `type` =
+LINE: 30
+----------------------------------------------------------------
+2019-06-15 11:59:39 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: SVG-support
+
+FILE: admin/controller/common/filemanager.php
+CODE: jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+
+FILE: catalog/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+----------------------------------------------------------------
+MOD: Упрощенный заказ [Custom Quick Checkout]
+
+FILE: catalog/controller/checkout/cart.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/model/setting/extension.php
+CODE: SELECT * FROM " . DB_PREFIX . "extension WHERE `type` =
+LINE: 30
+----------------------------------------------------------------
+MOD: 香港繁體中文語言包 OpenCart 3.0.X
+----------------------------------------------------------------
+2019-06-20 6:14:04 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: SVG-support
+
+FILE: admin/controller/common/filemanager.php
+CODE: jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+
+FILE: catalog/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+----------------------------------------------------------------
+MOD: Упрощенный заказ [Custom Quick Checkout]
+
+FILE: catalog/controller/checkout/cart.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/model/setting/extension.php
+CODE: SELECT * FROM " . DB_PREFIX . "extension WHERE `type` =
+LINE: 30
+----------------------------------------------------------------
+MOD: 香港繁體中文語言包 OpenCart 3.0.X
+----------------------------------------------------------------
+2019-07-17 6:47:16 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Email Verification
+
+FILE: admin/language/en-gb/extension/dashboard/activity.php
+CODE: <?php
+LINE: 1
+
+FILE: catalog/controller/mail/register.php
+CODE: $this->load->language('mail/register');
+LINE: 18
+CODE: $template = $this->model_extension_module_emailtemplate->load($template_load);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/account/success.php
+CODE: $data['text_message'] = sprintf($this->language->get('text_approval')
+LINE: 27
+CODE: $data['text_message'] = sprintf($this->language->get('text_approval')
+LINE: 44
+
+FILE: catalog/controller/account/register.php
+CODE: $this->customer->login($this->request->post['email'
+LINE: 28
+
+FILE: catalog/controller/account/edit.php
+CODE: $this->model_account_customer->editCustomer($this->customer->getId(), $this->request->post);
+LINE: 23
+
+FILE: catalog/controller/account/login.php
+CODE: $this->error['warning'] = $this->language->get('error_approved');
+LINE: 169
+
+FILE: catalog/controller/checkout/login.php
+CODE: $json['error']['warning'] = $this->language->get('error_approved');
+LINE: 45
+
+FILE: admin/model/customer/customer.php
+CODE: public function deleteCustomer($customer_id) {
+LINE: 57
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: SVG-support
+
+FILE: admin/controller/common/filemanager.php
+CODE: jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+
+FILE: catalog/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+----------------------------------------------------------------
+MOD: Упрощенный заказ [Custom Quick Checkout]
+
+FILE: catalog/controller/checkout/cart.php
+CODE: public function index() {
+LINE: 8
+
+FILE: catalog/model/setting/extension.php
+CODE: SELECT * FROM " . DB_PREFIX . "extension WHERE `type` =
+LINE: 30
+----------------------------------------------------------------
+MOD: 香港繁體中文語言包 OpenCart 3.0.X
+----------------------------------------------------------------
+2019-07-20 10:12:20 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: SVG-support
+
+FILE: admin/controller/common/filemanager.php
+CODE: jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+
+FILE: catalog/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+----------------------------------------------------------------
+MOD: Упрощенный заказ [Custom Quick Checkout]
+
+FILE: catalog/controller/checkout/cart.php
+CODE: public function index() {
+LINE: 8
+
+FILE: catalog/model/setting/extension.php
+CODE: SELECT * FROM " . DB_PREFIX . "extension WHERE `type` =
+LINE: 30
+----------------------------------------------------------------
+MOD: 香港繁體中文語言包 OpenCart 3.0.X
+----------------------------------------------------------------
+2019-09-18 11:53:17 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: SVG-support
+
+FILE: admin/controller/common/filemanager.php
+CODE: jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+
+FILE: catalog/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+----------------------------------------------------------------
+MOD: Y.CMS for Opencart 3.x
+
+FILE: catalog/controller/account/order.php
+CODE: // History
+LINE: 318
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 118
+
+FILE: admin/model/sale/order.php
+REGEX: ~o.date_added, o.date_modified FROM~
+LINE: 151
+REGEX: /\$query\s=\s\$this->db->query\(\$sql\);\s+return\s\$query->rows;/
+LINE: 224
+
+FILE: admin/language/en-gb/sale/order.php
+REGEX: ~(\$_\[\'text_add\'\])~
+LINE: 8
+
+FILE: admin/language/ru-ru/sale/order.php
+REGEX: ~(\$_\[\'text_add\'\])~
+LINE: 8
+
+FILE: system/library/mail.php
+CODE: basename(urlencode($attachment))
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: admin/controller/sale/order.php
+CODE: 'shipping_code' => $result['shipping_code'],
+LINE: 242
+CODE: $data['user_token'] = $this->session->data['user_token'];
+LINE: 254
+LINE: 482
+LINE: 814
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <li><a href="{{ order.edit }}"><i class="fa fa-pencil"></i> {{ button_edit }}</a></li>
+LINE: 149
+CODE: $('input[name^=\'selected\']:first').trigger('change');
+LINE: 324
+
+FILE: catalog/controller/common/footer.php
+CODE: $data['newsletter'] = $this->url->link('account/newsletter'
+LINE: 53
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 9
+
+FILE: catalog/view/theme/default/template/common/success.twig
+CODE: {{ footer }}
+LINE: 24
+
+FILE: catalog/view/theme/default/template/common/footer.twig
+CODE: <footer
+LINE: 44
+CODE: <p>{{ powered }}</p>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/common/header.twig
+CODE: </head
+LINE: 118
+LINE: 234
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 175
+CODE: $data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/product/product.twig
+CODE: <div id="product"> {% if options %}
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <input type="text" name="sort_order" value="{{ sort_order }}" placeholder="{{ entry_sort_order }}" id="input-sort-order" class="form-control" />
+LINE: 416
+
+FILE: admin/controller/catalog/product.php
+CODE: $data['layouts'] = $this->model_design_layout->getLayouts();
+LINE: 1188
+CODE: $this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);
+LINE: 74
+----------------------------------------------------------------
+MOD: Упрощенный заказ [Custom Quick Checkout]
+
+FILE: catalog/controller/checkout/cart.php
+CODE: public function index() {
+LINE: 8
+
+FILE: catalog/model/setting/extension.php
+CODE: SELECT * FROM " . DB_PREFIX . "extension WHERE `type` =
+LINE: 30
+----------------------------------------------------------------
+MOD: 香港繁體中文語言包 OpenCart 3.0.X
+----------------------------------------------------------------
+2019-09-18 11:53:23 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: SVG-support
+
+FILE: admin/controller/common/filemanager.php
+CODE: jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+
+FILE: catalog/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+----------------------------------------------------------------
+MOD: Y.CMS for Opencart 3.x
+
+FILE: catalog/controller/account/order.php
+CODE: // History
+LINE: 318
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 118
+
+FILE: admin/model/sale/order.php
+REGEX: ~o.date_added, o.date_modified FROM~
+LINE: 151
+REGEX: /\$query\s=\s\$this->db->query\(\$sql\);\s+return\s\$query->rows;/
+LINE: 224
+
+FILE: admin/language/en-gb/sale/order.php
+REGEX: ~(\$_\[\'text_add\'\])~
+LINE: 8
+
+FILE: admin/language/ru-ru/sale/order.php
+REGEX: ~(\$_\[\'text_add\'\])~
+LINE: 8
+
+FILE: system/library/mail.php
+CODE: basename(urlencode($attachment))
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: admin/controller/sale/order.php
+CODE: 'shipping_code' => $result['shipping_code'],
+LINE: 242
+CODE: $data['user_token'] = $this->session->data['user_token'];
+LINE: 254
+LINE: 482
+LINE: 814
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <li><a href="{{ order.edit }}"><i class="fa fa-pencil"></i> {{ button_edit }}</a></li>
+LINE: 149
+CODE: $('input[name^=\'selected\']:first').trigger('change');
+LINE: 324
+
+FILE: catalog/controller/common/footer.php
+CODE: $data['newsletter'] = $this->url->link('account/newsletter'
+LINE: 53
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 9
+
+FILE: catalog/view/theme/default/template/common/success.twig
+CODE: {{ footer }}
+LINE: 24
+
+FILE: catalog/view/theme/default/template/common/footer.twig
+CODE: <footer
+LINE: 44
+CODE: <p>{{ powered }}</p>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/common/header.twig
+CODE: </head
+LINE: 118
+LINE: 234
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 175
+CODE: $data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/product/product.twig
+CODE: <div id="product"> {% if options %}
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <input type="text" name="sort_order" value="{{ sort_order }}" placeholder="{{ entry_sort_order }}" id="input-sort-order" class="form-control" />
+LINE: 416
+
+FILE: admin/controller/catalog/product.php
+CODE: $data['layouts'] = $this->model_design_layout->getLayouts();
+LINE: 1188
+CODE: $this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);
+LINE: 74
+----------------------------------------------------------------
+MOD: Упрощенный заказ [Custom Quick Checkout]
+
+FILE: catalog/controller/checkout/cart.php
+CODE: public function index() {
+LINE: 8
+
+FILE: catalog/model/setting/extension.php
+CODE: SELECT * FROM " . DB_PREFIX . "extension WHERE `type` =
+LINE: 30
+----------------------------------------------------------------
+MOD: 香港繁體中文語言包 OpenCart 3.0.X
+----------------------------------------------------------------
+<<<<<<< HEAD
+2020-02-05 11:08:29 - MOD: Modification Default
+=======
+2020-02-05 11:14:05 - MOD: Modification Default
+>>>>>>> b354cbbf333b92582be811a1ce2cd0084926e2be
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+<<<<<<< HEAD
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+=======
+LINE: 166
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 222
+>>>>>>> b354cbbf333b92582be811a1ce2cd0084926e2be
+----------------------------------------------------------------
+MOD: SEO Pro (by opencart3x.ru)
+
+FILE: system/config/catalog.php
+CODE: $_['action_pre_action']
+LINE: 39
+CODE: 'startup/seo_url'
+LINE: 45
+
+FILE: admin/controller/setting/setting.php
+CODE: if (isset($this->request->post['config_file_max_size'])) {
+LINE: 845
+
+FILE: admin/language/en-gb/setting/setting.php
+CODE: $_['entry_meta_title']
+LINE: 45
+
+FILE: admin/language/ru-ru/setting/setting.php
+CODE: $_['entry_meta_title']
+LINE: 45
+
+FILE: admin/view/template/setting/setting.twig
+CODE: <label class="col-sm-2 control-label" for="input-robots"><span data-toggle="tooltip" title="{{ help_robots }}">{{ entry_robots }}</span></label>
+LINE: 1246
+
+FILE: admin/controller/catalog/product.php
+CODE: $data['product_categories'] = array();
+LINE: 909
+
+FILE: admin/language/en-gb/catalog/product.php
+CODE: $_['entry_name']
+LINE: 30
+
+FILE: admin/language/ru-ru/catalog/product.php
+CODE: $_['entry_name']
+LINE: 30
+
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['product_related'])) {
+LINE: 102
+LINE: 264
+CODE: public function getProductRelated($product_id) {
+LINE: 634
+CODE: $this->cache->delete('product');
+LINE: 140
+LINE: 310
+LINE: 369
+
+FILE: admin/view/template/catalog/product_form.twig
+CODE: <label class="col-sm-2 control-label" for="input-category"><span data-toggle="tooltip" title="{{ help_category }}">{{ entry_category }}</span></label>
+LINE: 445
+CODE: $('#product-category').append('<div id="product-category' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_category[]" value="' + item['value'] + '" /></div>');
+LINE: 1257
+CODE: $('#product-category').delegate('.fa-minus-circle', 'click', function() {
+LINE: 1264
+
+FILE: admin/model/catalog/category.php
+CODE: $this->cache->delete('category');
+LINE: 60
+LINE: 169
+LINE: 193
+
+FILE: admin/model/catalog/manufacturer.php
+CODE: $this->cache->delete('manufacturer');
+LINE: 31
+LINE: 66
+LINE: 77
+
+FILE: admin/model/catalog/information.php
+CODE: $this->cache->delete('information');
+LINE: 37
+LINE: 82
+LINE: 95
+
+FILE: catalog/view/theme/default/template/checkout/cart.twig
+CODE: onclick="cart.remove('{{ product.cart_id }}');"
+LINE: 46
+CODE: onclick="voucher.remove('{{ voucher.key }}');"
+NOT FOUND - OPERATIONS ABORTED!
+----------------------------------------------------------------
+MOD: SVG-support
+
+FILE: admin/controller/common/filemanager.php
+CODE: jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+
+FILE: catalog/model/tool/image.php
+CODE: $extension = pathinfo($filename, PATHINFO_EXTENSION);
+LINE: 15
+----------------------------------------------------------------
+MOD: Y.CMS for Opencart 3.x
+
+FILE: catalog/controller/account/order.php
+CODE: // History
+LINE: 318
+
+FILE: catalog/view/theme/default/template/account/order_info.twig
+CODE: </tfoot>
+LINE: 118
+
+FILE: admin/model/sale/order.php
+REGEX: ~o.date_added, o.date_modified FROM~
+LINE: 151
+REGEX: /\$query\s=\s\$this->db->query\(\$sql\);\s+return\s\$query->rows;/
+LINE: 224
+
+FILE: admin/language/en-gb/sale/order.php
+REGEX: ~(\$_\[\'text_add\'\])~
+LINE: 8
+
+FILE: admin/language/ru-ru/sale/order.php
+REGEX: ~(\$_\[\'text_add\'\])~
+LINE: 8
+
+FILE: system/library/mail.php
+CODE: basename(urlencode($attachment))
+NOT FOUND - OPERATION SKIPPED!
+
+FILE: admin/controller/sale/order.php
+CODE: 'shipping_code' => $result['shipping_code'],
+LINE: 242
+CODE: $data['user_token'] = $this->session->data['user_token'];
+LINE: 254
+LINE: 482
+LINE: 814
+
+FILE: admin/view/template/sale/order_list.twig
+CODE: <li><a href="{{ order.edit }}"><i class="fa fa-pencil"></i> {{ button_edit }}</a></li>
+LINE: 149
+CODE: $('input[name^=\'selected\']:first').trigger('change');
+LINE: 324
+
+FILE: catalog/controller/common/footer.php
+CODE: $data['newsletter'] = $this->url->link('account/newsletter'
+LINE: 89
+
+FILE: catalog/controller/checkout/success.php
+CODE: if (isset($this->session->data['order_id'])) {
+LINE: 9
+
+FILE: catalog/view/theme/default/template/common/success.twig
+CODE: {{ footer }}
+LINE: 24
+
+FILE: catalog/view/theme/default/template/common/footer.twig
+CODE: <footer
+LINE: 44
+CODE: <p>{{ powered }}</p>
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/view/theme/default/template/common/header.twig
+CODE: </head
+LINE: 118
+LINE: 235
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 175
+LINE: 594
+CODE: $data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+LINE: 316
+LINE: 647
+LINE: 731
+
+FILE: catalog/view/theme/default/template/product/product.twig
+CODE: <div id="product"> {% if options %}
+NOT FOUND - OPERATIONS ABORTED!
+CODE: <input type="text" name="sort_order" value="{{ sort_order }}" placeholder="{{ entry_sort_order }}" id="input-sort-order" class="form-control" />
+LINE: 416
+CODE: $data['layouts'] = $this->model_design_layout->getLayouts();
+LINE: 1197
+CODE: $this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);
+LINE: 74
+----------------------------------------------------------------
+MOD: Упрощенный заказ [Custom Quick Checkout]
+
+FILE: catalog/controller/checkout/cart.php
+CODE: public function index() {
+LINE: 8
+
+FILE: catalog/model/setting/extension.php
+CODE: SELECT * FROM " . DB_PREFIX . "extension WHERE `type` =
+LINE: 30
+----------------------------------------------------------------
+MOD: 香港繁體中文語言包 OpenCart 3.0.X
+----------------------------------------------------------------

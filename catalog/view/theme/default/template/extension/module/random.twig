@@ -1,0 +1,148 @@
+<div class="col-12  col-sm-12 col-md-12 col-lg-6" id="randomProducts">
+    <div id="productsRandom">
+        {% for product in products %}
+        <div class="item-lenta">
+            <a href="{{ product.brand_href }}" class="lenta-top" style="color: #000000;text-decoration: none;">
+                <img src="{{ product.brand_image }}" alt="">
+                <span>{{ product.brand_name }}</span>
+            </a>
+            <div class="img-lenta">
+                <img  src="{{ product.thumb }}" alt="">
+            </div>
+
+            <div class="produc-modal-info-footer">
+
+                <div class="produc-modal-left">
+                    <div class="favorite-icon">
+                        <span onclick="wishlistModal.add({{ product.product_id }})" class="btn-favorite btn-favorite-view"></span>
+                    </div>
+                    <div class="social-network-blocks">
+                        <span class="social-network" data-toggle="modal"
+                            data-target="#exampleModalSocial"></span>
+                    </div>
+                </div>
+
+                <div class="modal-cart-icon">
+                    <button class="btn btn-primary mobile" onclick="cart.add({{ product.product_id }})">
+                        <i class="cart-icon"></i>
+                        {{ to_basket }} 
+                    </button>
+                    <button class="btn btn-primary desctop" onclick="cart.add({{ product.product_id }})">
+                        <i class="cart-icon"></i>
+                        {{ to_basket }} 
+                    </button>
+                </div>
+
+            </div> 
+            <div class="produc-modal-info-top mt-2">
+
+                <div class="p-title-modal mb-2">
+                    {{ product.name }}
+                </div>
+
+                <div class="p-cost-modal">
+                    <span class="discount-price">{{ product.tax }}</span>
+                    {% if product.special %}
+                        <span class="real-price">{{ product.price }}</span>
+                    {% endif %}
+                </div>
+
+                <div class="prid_sum">
+                    <a href="/index.php?route=common/suggest&product_id={{ product.product_id }}">{{ offered_price }}</a>
+                </div>
+
+                <div class="hidding-text" id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOneq1">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse"
+                                    data-target="#collapseOne{{ product.product_id }}" aria-expanded="true"
+                                    aria-controls="collapseOne{{ product.product_id }}">
+                                    {{ characteristics}}
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne{{ product.product_id }}" class="collapse" aria-labelledby="headingOneq1"
+                            data-parent="#accordion">
+                            <div class="card-body nonepadd">
+
+                                <div class="collapse2">
+                                    {% if product.filter_groups|length > 0 %}
+                                    {% for filter_group in product.filter_groups %}
+                                        <div class="titleNone">
+                                            {{ filter_group.name }}
+                                        </div>
+                                        <div class="titleNone-block">
+                                        {% for filter in filter_group.filter %}
+                                            {% if filter_group.filter|length > 0 and loop.index != filter_group.filter|length %}
+                                            {{ filter.name }},
+                                            {% else %}
+                                            {{ filter.name }}
+                                            {% endif %}
+                                        {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                    {% endif %}
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div> <!--end item-lenta //-->
+        {% endfor %}
+        {# {% if yes_again %}
+            <div class="col-12 text-center">
+                <a onclick="showMoreRandomProducts({{ limit }})" class="add-more" style="cursor:pointer">{{ show_more }}</a>
+            </div> <!-- col end.// -->
+        {% endif %} #}
+
+            <input type="hidden" id="limitRandom" value="{{ limit }}">
+            <input type="hidden" id="yes_againRandom" value="{{ yes_again }}">
+
+    </div>
+</div>
+<script>
+
+
+        $(window).scroll(function() {
+            if(($(window).scrollTop() >= ($('#productsRandom').offset().top + $('#productsRandom').outerHeight() - window.innerHeight)) && (($('#productsRandom').offset().top + $('#productsRandom').outerHeight() - window.innerHeight) > 0)){
+                limit = Number($('#limitRandom').val());
+                yes_again = Number($('#yes_againRandom').val());
+                if(yes_again)
+                {
+                    limit = limit +30
+
+                    $('#showMoreModal').modal('show');
+                    $('#randomProducts').load('index.php?route=extension/module/random/info&limit='+ limit +' #productsRandom',function(){
+                        setTimeout(function(){
+
+                            // Hides all paragraphs
+                            $(".titleNone-block").hide();
+                            // Optional for showing the first paragraph. For animation use .slideDown(200) instead of .show()
+                            // $(".titleNone-block").first().show();
+
+                            $(".titleNone").click(function () {
+                                // Toggles the paragraph under the header that is clicked. .slideToggle(200) can be changed to .slideDown(200) to make sure one paragraph is shown at all times.
+                                $(this).next(".titleNone-block").slideToggle(200);
+                                // Makes other pararaphes that is not under the current clicked heading dissapear
+                                $(this).siblings().next(".titleNone-block").slideUp(200);
+                            });
+
+                            $('#showMoreModal').modal('hide');
+                            
+                        },1000);
+                    });
+
+                }
+            }
+        });
+</script>

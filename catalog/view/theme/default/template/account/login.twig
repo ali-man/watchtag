@@ -1,0 +1,81 @@
+
+{# {% if success %}
+  <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}</div>
+{% endif %}
+{% if error_warning %}
+  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+{% endif %}
+
+<form action="{{ action }}" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label class="control-label" for="input-email">{{ entry_email }}</label>
+    <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="input-password">{{ entry_password }}</label>
+    <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
+    <a href="{{ forgotten }}">{{ text_forgotten }}</a></div>
+  <input type="submit" value="{{ button_login }}" class="btn btn-primary" />
+  {% if redirect %}
+  <input type="hidden" name="redirect" value="{{ redirect }}" />
+  {% endif %}
+</form> #}
+{{ header }}
+<!--start page-cart-->
+<section class="page-cart-my mt-5 mb-5 inputcolor">
+  <div class="container">
+      
+      <div class="row justify-content-md-center">
+
+          <div class="col-12 col-sm-9 col-md-4">
+            {% if error_warning %}
+              <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+            {% endif %}
+              {% if success %}
+                <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}</div>
+              {% endif %}
+            <div class="cart-form bg-white">
+                    <form class="needs-validation" action="{{ action }}" method="post">
+                        <div class="mobil-check-logocon">
+                            <a href="index.html" class="logoo">
+                                <img src="catalog/view/theme/default/images/logo/logo.png" height="30" alt="image">
+                            </a>
+                        </div>
+                        <span class="entrance_title">{{ text_login }}</span>
+                        
+                        <div class="input-group mb-3">
+                          <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
+                        </div>
+                    
+                        <div class="input-group mb-3">
+                          <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
+                        </div>
+                        <button class="btn btn-primary" type="submit">{{ button_login }}</button>
+
+                        <a href="{{ forgotten }}" class="vayti">
+                            <p>
+                                {{ text_forgotten }}
+                            </p>
+                        </a>
+                        {% if redirect %}
+                          <input type="hidden" name="redirect" value="{{ redirect }}" />
+                        {% endif %}
+                        {# <div class="custom-control custom-checkbox d-flex align-items-center">
+                            <input type="checkbox" class="custom-control-input" id="customCheck3">
+                            <label class="custom-control-label" for="customCheck3">Remember me</label>
+                        </div> #}
+                    </form>
+            </div>
+            <div class="Sign-up">
+                <p>{{ no_account_yet }}</p>
+                <a href="{{ register }}">{{ register_text }}</a>
+            </div>
+
+          </div><!--end col //-->
+
+      </div>  <!--end row //-->
+    
+  </div>  <!--end container //-->
+</section>
+<!--start User-cabinet-->
+{{ footer }}

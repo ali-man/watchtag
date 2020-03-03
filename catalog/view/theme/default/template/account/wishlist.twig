@@ -1,0 +1,56 @@
+{{ header }}         
+{# {% for product in products %}
+  <tr>
+    <td class="text-center">{% if product.thumb %}<a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" /></a>{% endif %}</td>
+    <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a></td>
+    <td class="text-left">{{ product.model }}</td>
+    <td class="text-right">{{ product.stock }}</td>
+    <td class="text-right">{% if product.price %}
+      <div class="price"> {% if not product.special %}
+        {{ product.price }}
+        {% else %} <b>{{ product.special }}</b> <s>{{ product.price }}</s> {% endif %} </div>
+      {% endif %}</td>
+    <td class="text-right"><button type="button" onclick="cart.add('{{ product.product_id }}');" data-toggle="tooltip" title="{{ button_cart }}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></button>
+      <a href="{{ product.remove }}" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
+  </tr>
+{% endfor %} #}
+<!--start page-favorites-->
+<section class="favorite  mt-5 mb-5">
+    <div class="container">
+        <div class="row nonePaddding">
+          {% if products %}
+            {% for product in products %}
+              <div class="col-4 col-md-4  col-xl-4">
+                  <div class="item-product">
+                      <div class="favorite-icon desctop">
+                        <span onclick="wishlistModal.remove({{ product.product_id }})" class="btn-favorite btn-favorite-view  btn-favorite--is-active"></span>
+                      </div>
+                      <a  class="desktop-product  modal-product">
+                          <input type="hidden" class="product_id" value="{{ product.product_id }}">
+                          <div class="img-wrap">
+                              <img src="{{ product.thumb }}" alt="">
+                          </div>
+                          <div class="hover-wrap">
+                              <h5 class="title">{{ product.name }}</h5>
+                              <span class="price">{{ product.tax }}</span>
+                          </div>
+                      </a>
+
+                      <a href="{{ product.href }}" class="desktop-mobile-product">
+                          <div class="img-wrap">
+                              <img src="{{ product.thumb }}" alt="">
+                          </div>
+                      </a>
+
+                    
+                  </div>
+              </div><!-- col end.// -->
+            {% endfor %}
+          {% else %}
+            <p>{{ text_empty }}</p>
+          {% endif %}
+        </div><!-- row end.// -->
+    </div>
+</section>
+
+{{ footer }}

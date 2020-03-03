@@ -1,0 +1,77 @@
+<div id="lastProductReload">
+    <div class="row nonePaddding" id="last_product">
+        {% for key,last_product in last_products %}
+            <div class="col-4  col-md-4  col-xl-4">
+                    <div class="item-product">
+                        <a href="#" onclick="return false;" class="desktop-product modal-product" id="last{{ key }}">
+                            <input type="hidden" class="product_id" value="{{ last_product.product_id }}" >
+                        
+                            <input type="hidden" class="type_product" value="last">
+
+                            {% if key == 0 %}
+                                <input type="hidden" class="prev_product_id" value="{{ last_products|last.product_id }}">
+                            {% else %}
+                                <input type="hidden" class="prev_product_id" value="{{ last_products[key-1].product_id }}">
+                            {% endif %}
+
+
+                            {% if key == last_products|length - 1 %}
+                                <input type="hidden" class="next_product_id" value="{{ last_product|first.product_id }}">
+                            {% else %}
+                                <input type="hidden" class="next_product_id" value="{{ last_products[key+1].product_id }}">
+                            {% endif %}
+
+                            <input type="hidden" class="key" value="{{ key }}">
+                            <input type="hidden" class="array_length" value="{{ last_products|length - 1 }}">
+
+                            <div class="img-wrap">
+                                <img src="{{ last_product.thumb }}" alt="">
+                            </div>
+                            {% if last_product.special %}
+                                <div class="label">-{{ last_product.percent_special }}%</div>
+                            {% endif %}
+                            <div class="hover-wrap">
+                                <h5 class="title">{{ last_product.name }}</h5>
+                                <span class="price">{{ last_product.tax }}</span>
+                            </div>
+                        </a>
+                        <a href="{{ last_product.href }}" class="desktop-mobile-product">
+                            <div class="img-wrap">
+                                <img src="{{ last_product.thumb }}" alt="">
+                            </div>
+                            {% if last_product.special %}
+                                <div class="label">-{{ last_product.percent_special }}%</div>
+                            {% endif %}
+                        </a>
+                    </div>    
+            </div>  <!-- col end.// -->
+        {% endfor %}
+        {# {% if yes_again %}
+            <div class="col-12 text-center">
+                <a onclick="showMoreLastProduct({{ limit }})" class="add-more" style="cursor:pointer">{{ show_more }}</a>
+            </div> <!-- col end.// -->
+        {% endif %} #}
+        <input type="hidden" id="limitLast" value="{{ limit }}">
+        <input type="hidden" id="yes_againLast" value="{{ yes_again }}">            
+    </div> <!-- row end.// -->
+</div>
+
+
+<script>
+    $(window).scroll(function() {
+        if(($(window).scrollTop() >= ($('#lastProductReload').offset().top + $('#lastProductReload').outerHeight() - window.innerHeight)) && (($('#lastProductReload').offset().top + $('#lastProductReload').outerHeight() - window.innerHeight) > 0)){
+            limit = Number($('#limitLast').val());
+            yes_again = Number($('#yes_againLast').val());
+            if(yes_again)
+            {
+                limit = limit + 30;
+                $('#showMoreModal').modal('show');
+                $('#lastProductReload').load('index.php?route=common/home/infoLastProduct&limit='+ limit +' #lastProductReload',function(){
+                    setTimeout(function(){
+                        $('#showMoreModal').modal('hide');
+                    },1000);
+                });
+            }
+        }
+    });
+</script>

@@ -1,0 +1,39 @@
+<form action="/index.php?route=account/edit" method="post">
+    <div class="form-group row">
+        <label for="inputText" class="col-12 col-sm-3 col-form-label text-right">{{ entry_firstname }}</label>
+        <div class="col-12 col-sm-6">
+            <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-firstname" class="form-control" />
+            {% if error_firstname %}
+                <div class="eror">{{ error_firstname }}</div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputText" class="col-12 col-sm-3 col-form-label text-right">{{ entry_lastname }}</label>
+        <div class="col-12 col-sm-6">
+            <input type="text" name="lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" id="input-lastname" class="form-control" />
+            {% if error_lastname %}
+                <div class="eror">{{ error_lastname }}</div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="exampleFormControlemail" class="col-12 col-sm-3 col-form-label text-right">{{ entry_email }}</label>
+        <div class="col-12 col-sm-6">
+            <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
+            {% if error_email %}
+                <div class="eror">{{ error_email }}</div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="exampleFormTel" class="col-12 col-sm-3 col-form-label text-right">{{ entry_telephone }}</label>
+        <div class="col-12 col-sm-6">
+            <input type="tel" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control" />
+            {% if error_telephone %}
+                <div class="eror">{{ error_telephone }}</div>
+            {% endif %}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary col-md-6 offset-md-3 mt-3">{{ save }}</button>
+</form>

@@ -1,0 +1,14 @@
+{% for brand in brands %}
+    <div class="item">
+        <div class="brend_link">
+            <a href="{{ brand.href }}">
+                <div class="brendimges">
+                    <img src="{{ brand.thumb }}" alt="" class="imga">
+                </div>
+                <div class="brendName">
+                    <span>{{ brand.name }}</span>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,72 @@
+<div id="brandsReload">
+    {% if brandsCategory %}
+        <div class="row nonePaddding" id="brands">
+                {% for brand in brandsCategory %}                
+                    <div class="col-4  col-md-4  col-xl-4">
+                        <div class="item-product">
+                            <a href="{{ brand.href }}">
+                                <div class="img-wrap">
+                                    <img src="{{ brand.thumb }}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>  <!-- col end.// -->
+                {% endfor %}    
+            {# {% if yes_again %}
+                <div class="col-12 text-center">
+                    <a onclick="showMore({{ limit }})" class="add-more" style="cursor:pointer">{{ show_more }}</a>
+                </div> <!-- col end.// -->
+            {% endif %} #}
+            <input type="hidden" id="limitBrands" value="{{ limit }}">
+            <input type="hidden" id="yes_againBrands" value="{{ yes_again }}"> 
+        </div> <!-- row end.// -->
+    {% else %}
+        <div class="row justify-content-center py-5">
+            <div class="col-12 col-md-10 col-lg-8 text-center">
+                <div class="fdb-box">
+                    <p class="lead">
+                        {{ text_empty }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+
+<script>
+
+    $(window).scroll(function() {
+        if(($(window).scrollTop() >= ($('#brandsReload').offset().top + $('#brandsReload').outerHeight() - window.innerHeight)) && (($('#brandsReload').offset().top + $('#brandsReload').outerHeight() - window.innerHeight) > 0)){
+            limit = Number($('#limitBrands').val());
+            var path = getUrlParameter('path');
+            yes_again = Number($('#yes_againBrands').val());
+            if(yes_again)
+            {
+                limit = limit + 30
+                $('#showMoreModal').modal('show');
+                $('#brandsReload').load('index.php?route=product/manufacturer/infoBrands&limit='+ limit + '&path=' + path +' #brandsReload',function(){
+                    setTimeout(function(){
+                        $('#showMoreModal').modal('hide');
+                    },1000);
+                });
+            }
+        }
+    });
+
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+</script>

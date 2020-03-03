@@ -1,0 +1,87 @@
+{# {% if error_warning %}
+<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+{% endif %} #}
+
+{{ header }}
+<!--start page-cart-->
+<section class="block-checki  mt-5 mb-5 inputcolor">
+  <div class="container">
+      
+      <div class="row justify-content-md-center">
+
+          <div class="col-12 col-sm-12 col-md-4">
+            {% if error_warning %}
+              <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              </div>
+            {% endif %}
+
+              <div class="cart-form bg-white check-forma">
+                      <form class="needs-validation" action="{{ action }}" method="post">
+                          <span class="entrance_title">{{ text_register }}</span>
+                              
+                          <div class="input-group mb-3">
+                            <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-firstname" class="form-control" />
+                            {% if error_firstname %}
+                            <div class="eror">{{ error_firstname }}</div>
+                            {% endif %}
+                          </div>
+                          <div class="input-group mb-3">
+                            <input type="text" name="lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" id="input-lastname" class="form-control" />
+                            {% if error_lastname %}
+                            <div class="eror">{{ error_lastname }}</div>
+                            {% endif %}
+                          </div>
+
+                          <div class="input-group mb-3">
+                            <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
+                            {% if error_email %}
+                            <div class="eror">{{ error_email }}</div>
+                            {% endif %}
+                          </div>
+
+                          <div class="input-group mb-3">
+                            <input type="tel" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control" />
+                            {% if error_telephone %}
+                            <div class="eror">{{ error_telephone }}</div>
+                            {% endif %}
+                          </div>
+              
+                          <div class="input-group mb-3">
+                            <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
+                            {% if error_password %}
+                            <div class="eror">{{ error_password }}</div>
+                            {% endif %}
+                          </div>
+
+                          <div class="input-group mb-3">
+                            <input type="password" name="confirm" value="{{ confirm }}" placeholder="{{ entry_confirm }}" id="input-confirm" class="form-control" />
+                            {% if error_confirm %}
+                            <div class="eror">{{ error_confirm }}</div>
+                            {% endif %}
+                          </div>
+                          
+                          <div class="regis-text mb-4">
+                            {{ text_agree }}  
+                          </div>
+                          <input type="hidden" name="agree" value="1" />
+                          <button class="btn btn-primary" type="submit">{{ button_register }}</button>
+                          <!-- <div class="custom-control custom-checkbox d-flex align-items-center">
+                              <input type="checkbox" class="custom-control-input" id="customCheck3">
+                              <label class="custom-control-label" for="customCheck3">Remember me</label>
+                          </div> -->
+                      </form>
+                  <div class="Sign-up d-flex" style="margin: 0px; width: 243px;">
+                    {{ text_account_already }}
+                  </div>
+              </div>
+
+
+          </div><!--end col //-->
+
+      </div>  <!--end row //-->
+    
+  </div>  <!--end container //-->
+</section>
+<!--start User-cabinet-->
+{{ footer }} 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="28">
+	<defs>
+		<clipPath id="clip_0">
+			<rect x="-438" y="-1364" width="1440" height="1700" clip-rule="evenodd"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip_0)">
+		<path fill="rgb(65,180,230)" stroke="none" d="M13.9998 27.9997C21.7317 27.9997 27.9997 21.7317 27.9997 13.9998C27.9997 6.26794 21.7317 0 13.9998 0C6.26794 0 0 6.26794 0 13.9998C0 21.7317 6.26794 27.9997 13.9998 27.9997Z"/>
+	</g>
+	<defs>
+		<clipPath id="clip_1">
+			<rect x="-438" y="-1364" width="1440" height="1700" clip-rule="evenodd"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip_1)">
+		<path fill="rgb(0,145,200)" stroke="none" transform="translate(5.83887 7.18359)" d="M22.1609 6.81641C22.1609 6.47527 22.1481 6.13725 22.1241 5.80218L16.3218 0L0 6.42026L6.24482 12.6651L6.32674 12.96L6.43278 12.8531L6.43322 12.8535L6.32674 12.96L13.2347 19.868C18.4585 17.8358 22.1609 12.7588 22.1609 6.81641Z"/>
+	</g>
+	<defs>
+		<clipPath id="clip_2">
+			<rect x="-438" y="-1364" width="1440" height="1700" clip-rule="evenodd"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip_2)">
+		<path fill="rgb(255,255,255)" stroke="none" transform="translate(5.83887 7.18359)" d="M6.80132 8.85609L13.1282 13.6329L16.3219 0L0 6.42026L4.96655 8.06531L14.0306 1.98538L6.80132 8.85609Z"/>
+	</g>
+	<defs>
+		<clipPath id="clip_3">
+			<rect x="-438" y="-1364" width="1440" height="1700" clip-rule="evenodd"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip_3)">
+		<path fill="rgb(210,210,215)" stroke="none" transform="translate(10.8057 9.16895)" d="M0 6.07994L1.36024 10.9747L1.83477 6.87072L9.06407 0L0 6.07994Z"/>
+	</g>
+	<defs>
+		<clipPath id="clip_4">
+			<rect x="-438" y="-1364" width="1440" height="1700" clip-rule="evenodd"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip_4)">
+		<path fill="rgb(185,185,190)" stroke="none" transform="translate(12.166 16.04)" d="M2.53077 1.55247L0 4.10397L0.474523 0L2.53077 1.55247Z"/>
+	</g>
+
+</svg>

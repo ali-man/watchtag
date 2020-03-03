@@ -1,0 +1,57 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid"> 
+
+    <div class="panel panel-default">
+
+      <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-author">{{ column_username }}</label>
+                <div class="col-sm-10">
+                    <input type="text" name="author" readonly value="{{ name }}" placeholder="{{ column_username }}" id="input-author" class="form-control" />  
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-author">{{ column_phone }}</label>
+                <div class="col-sm-10">
+                    <input type="text" name="author" readonly value="{{ phone }}" placeholder="{{ column_phone }}" id="input-author" class="form-control" />  
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-author">{{ question_text }}</label>
+                <div class="col-sm-10">
+                    <textarea name="text" cols="60" readonly rows="8" placeholder="{{ question_text }}" id="input-text" class="form-control">{{ question }}</textarea>  
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-author">{{ column_mail }}</label>
+                <div class="col-sm-10">
+                    <input type="text" name="author" readonly value="{{ mail }}" placeholder="{{ column_mail }}" id="input-author" class="form-control" />  
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-author">{{ column_type }}</label>
+                <div class="col-sm-10">
+                    <input type="text" name="author" readonly value=" {% if type == "callback" %}Перезвоните{% elseif type == "question" %}Вопрос{% elseif type == "for_product" %}Купить продукт{% endif %}" placeholder="{{ column_type }}" id="input-author" class="form-control" />  
+                </div>
+            </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+ </div>
+{{ footer }}

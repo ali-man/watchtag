@@ -1,0 +1,299 @@
+{{ header }}
+  <!--start mobil-product-list -->
+    <section class="mobil-product-list mb-5 product-modal" id="reloadProducts">
+        <div class="container" id="products">
+            <div class="row">
+                <div class="col-12  col-sm-12 col-md-12">
+                    <a href="{{ brand_href }}" style="color: #000000;text-decoration: none;" class="lenta-top">
+                        <img src="{{ brand_image }}" alt="">
+                        <span>{{ brand_name }}</span>
+                    </a>
+                    <div id="carousel2_indicator" class="carousel slide carousel-fade"  data-interval="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="{{ thumb }}" alt="First slide">
+                                </div>
+                                {% for image in images %}
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ image.thumb }}" alt="Second slide">
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% for image in images %}
+                                <a class="carousel-control-prev" href="#carousel2_indicator" role="button" data-slide="prev">  </a>
+                                <a class="carousel-control-next" href="#carousel2_indicator" role="button" data-slide="next">  </a>
+                            {% endfor %}
+                    </div>
+                </div>
+                <div class="col-12  col-sm-12 col-md-12">
+                    <div class="produc-modal-info">
+                        <div class="produc-modal-info-footer">
+                            <div class="produc-modal-left">
+                                <div class="favorite-icon">
+                                    <span onclick="wishlistModal.add({{ product_id }})" class="btn-favorite btn-favorite-view {% if wishlist %} btn-favorite--is-active {% endif %}"></span>
+                                </div>
+
+                                
+                                <div class="social-network-blocks">
+                                    <span class="social-network" data-toggle="modal"
+                                        data-target="#exampleModalSocial"></span>
+                                </div>
+                            </div>
+
+                            <div class="modal-cart-icon" onclick="cart.add({{ product_id }})">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="cart-icon"></i>
+                                    {{ to_basket }} 
+                                </button>
+                            </div>
+
+                        </div>
+                        
+                        <div class="produc-modal-info-top mt-2">
+
+                            <div class="p-title-modal mb-2">
+                                {{ name }}
+                            </div>
+
+                            <div class="p-cost-modal">
+                                <span class="discount-price">{{ tax }}</span>
+                                {% if special %}
+                                    <span class="real-price">{{ price }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="prid_sum">
+                                <a href="/index.php?route=common/suggest&product_id={{ product_id }}">{{ offered_price }}</a>
+                            </div>
+                            <div class="hidding-text" id="accordion">
+                                <div class="card">
+                                    <div class="card-header" id="headingOneq">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse"
+                                                data-target="#collapseOne1" aria-expanded="true"
+                                                aria-controls="collapseOne1">
+                                                {{ characteristics }}
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapseOne1" class="collapse" aria-labelledby="headingOneq"
+                                        data-parent="#accordion">
+                                        <div class="card-body nonepadd">
+
+                                            <div class="collapse2">
+
+                                                {% if filter_groups|length > 0 %}
+                                                    {% for filter_group in filter_groups %}
+                                                        <div class="titleNone">
+                                                            {{ filter_group.name }}
+                                                        </div>
+                                                        <div class="titleNone-block">
+                                                        {% for filter in filter_group.filter %}
+                                                            {% if filter_group.filter|length > 0 and loop.index != filter_group.filter|length %}
+                                                            {{ filter.name }},
+                                                            {% else %}
+                                                            {{ filter.name }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="{{ last_product_id }}" name="last_product_id">
+    </section>
+  <!--end mobil-product-list -->
+{{ footer }} 
+
+<script>
+    var ready = true;
+    $(window).scroll(function() {
+
+
+        if(ready && $(window).scrollTop() >= $(document).height() - $(window).height() - 100){
+            ready = false;
+            var product_id = $("input[name=last_product_id]").val();
+            $.ajax({
+				url: 'index.php?route=product/product/next',
+				type: 'get',
+				data: 'product_id=' + product_id,
+				dataType: 'json',
+				success: function(json){
+					data = json['success'];
+                    $("input[name=last_product_id]").val(data['last_product_id']);
+                    $('#showMoreModal').modal('show');
+                    var content = '';
+                    content = content + `
+                        <div class="row">
+                            <div class="col-12  col-sm-12 col-md-12">
+                                <a href="` + data['brand_href'] +  `" style="color: #000000;text-decoration: none;" class="lenta-top">
+                                    <img src="` + data['brand_image'] + `" alt="">
+                                    <span>` + data['brand_name'] + `</span>
+                                </a>
+                                <div id="carousel2_indicator" class="carousel slide carousel-fade"  data-interval="false">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img class="d-block w-100" src="` + data['thumb'] + `" alt="First slide">
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-12  col-sm-12 col-md-12">
+                                <div class="produc-modal-info">
+                                    <div class="produc-modal-info-footer">
+                                        <div class="produc-modal-left">
+                                            <div class="favorite-icon">
+                                                <span onclick="wishlistModal.add(` + data['last_product_id'] + `)" class="btn-favorite btn-favorite-view ` + appendWishlist(data['wishlist']) + `"></span>
+                                            </div>
+
+                                            
+                                            <div class="social-network-blocks">
+                                                <span class="social-network" data-toggle="modal"
+                                                    data-target="#exampleModalSocial"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-cart-icon" onclick="cart.add(` + data['last_product_id'] + `)">
+                                            <button class="btn btn-primary" type="submit">
+                                                <i class="cart-icon"></i>
+                                                {{ to_basket }} 
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                     <div class="produc-modal-info-top mt-2">
+                                        <div class="p-title-modal mb-2">
+                                            ` + data['name'] + `
+                                        </div>
+                                     </div>
+
+                                    <div class="p-cost-modal">
+                                        <span class="discount-price">` + data['tax'] + `</span>`
+                                        + appendSpecial(data['special'],data['price']) +
+                                    `</div>
+                                    <div class="prid_sum">
+                                        <a href="/index.php?route=common/suggest&product_id=` + data['last_product_id'] + `">{{ offered_price }}</a>
+                                    </div>
+                                    <div class="hidding-text" id="accordion">
+                                        <div class="card">
+                                            <div class="card-header" id="headingOneq">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse"
+                                                        data-target="#collapseOne` + data['last_product_id'] + `" aria-expanded="true"
+                                                        aria-controls="collapseOne` + data['last_product_id'] + `">
+                                                        {{ characteristics }}
+                                                    </button>
+                                                </h5>
+                                            </div>
+
+                                            <div id="collapseOne` + data['last_product_id'] + `" class="collapse" aria-labelledby="headingOneq"
+                                                data-parent="#accordion">
+                                                <div class="card-body nonepadd">
+
+                                                    <div class="collapse2">
+                                                        ` + appendCharact(data['filter_groups']) + `
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    var div = document.getElementById('products');
+
+
+                    div.innerHTML += content;
+                    $(".titleNone-block").hide();
+                    $(".titleNone").click(function () {
+                        $(this).next(".titleNone-block").slideToggle(200);
+                        $(this).siblings().next(".titleNone-block").slideUp(200);
+                    });
+                    setTimeout(function(){
+                        $('#showMoreModal').modal('hide');
+                    },1000);
+                    $('.btn-favorite-view').on('click', function () {
+                        $(this).toggleClass('btn-favorite--is-active');
+                    });
+
+                    
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+            })
+            .done(function() {
+                ready = true;
+            });
+        }
+    });
+
+
+    function appendSpecial(special,price){
+        if(special){
+            return `<span class="real-price">` + price +`</span>`
+        }
+        else
+            return '';
+    }
+
+    function appendCharact(filter_groups){
+        if(filter_groups.length > 0){
+            var content = '';
+            filter_groups.forEach(function(filter_group) {
+                content = content + `
+                    <div class="titleNone">
+                        ` + filter_group['name'] + `
+                    </div>
+                    <div class="titleNone-block">
+                        `+ appendCharactItems(filter_group['filter']) +`
+                    </div>
+                `;
+            });
+            return content;
+        }
+        else{
+            return '';
+        }
+    }
+
+    function appendCharactItems(filter_group){
+        var content = '';
+        filter_group.forEach(function(filter) {
+            if(filter.length > 0 && loop.index != filter.length)
+                content += (filter['name'] + ',');
+            else
+                content += filter['name'];
+        });
+        return content;
+    }
+
+    function appendWishlist(wishlist){
+        if(wishlist)
+            return `btn-favorite--is-active`;
+        else
+            return '';
+    }
+    
+</script>

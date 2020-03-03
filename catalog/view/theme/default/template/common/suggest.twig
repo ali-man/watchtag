@@ -1,0 +1,320 @@
+{{ header }}
+    <!--start User-cabinet-->
+    <section class="price   mt-5 mb-5 inputcolor">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-12">
+                    <h2 class="block-title mb-3">Предложить цену</h2>
+                </div>
+                <!--end col //-->
+
+                <div class="col-12 col-md-12 col-lg-5 mt-2">
+                    <div class="checkout-left border_color">
+                        <div class="img_price_lrft ">
+                            <img src="{{ thumb }}" alt="">
+                            <div class="img_price_lrft_name">{{ name }}</div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-left-mobil">
+                        <div class="checkout-leftmobil-title">
+                            <span>{{ name }}</span>
+                        </div>
+                        <div class="checkout-left-mobil-none">
+                            <div class="img_price_lrft border_color">
+                                <img src="{{ thumb }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end col //-->
+                <input type="hidden" value="{{ numberTax }}" id="numberTax">
+                <div class="col-12 col-md-12 col-lg-7 mt-2">
+                    <div class="price_form">
+                        <form action="/index.php?route=common/suggest/store" method="post" id="suggestForm">
+                            <input type="hidden" name="product_id" value="{{ product_id }}">
+                            <div class="price_blocks border_color">
+                                <div class="price_blocks_title"> <span>Ваше ценовое предложение</span> </div>
+                                <div class="price_blocks_coanten">
+
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-12">
+                                            <label for="inputState">Ваше ценовое предложение (вкл. все сборы)</label>
+                                                <div class="form_type">
+                                                    <select id="inputCurrency" class="form-control" name="currency">
+                                                        {% for currency in currencies %}
+                                                            {% if currency.code == codeCurrency %}
+                                                                <option selected value="{{ currency.symbol_right }}">
+                                                                    <a style="text-transform: uppercase;" href="#" class="currency-select" name="{{ currency.code }}">{{ currency.code }}</a>
+                                                                </option>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% for currency in currencies %}
+                                                            {% if currency.code != codeCurrency %}
+                                                                <option value="{{ currency.symbol_right }}">
+                                                                    <a style="text-transform: uppercase;" href="#" class="currency-select" name="{{ currency.code }}">{{ currency.code }}</a>
+                                                                </option>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </select>
+                                                    <input type="number" name="price" class="form-control" id="inputZip">
+                                                </div>
+                                            <sapn class="sapn_sen">Цена дилера (не включая стоимость пересылки): {{ tax }}</sapn>
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <div class="text_inform_sum" style="display:none">
+                                                        <span>
+                                                            Ваше ценовое предложение сильно отличается от цены в объявлении.
+                                                        </span>
+                                                <p>Ценовые предложения, сильно отличающиеся от цены в объявлении,
+                                                    обычно отклоняются. Мы рекомендуем Вам повысить ценовое предложение.</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="price_blocks border_color">
+                                <div class="price_blocks_title"> <span>Адрес доставки</span> </div>
+                                <div class="price_blocks_coanten">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputName">Имя</label>
+                                            <input name="firstname" class="form-control" id="inputName" value="{{ firstname }}" placeholder="Имя">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputlinName">Фамилия</label>
+                                            <input name="lastname" class="form-control" id="inputlinName" value="{{ lastname }}" placeholder="Фамилия">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="clientTelegram">Tелефон</label>
+                                            <input name="phone" class="form-control" value="{{ telephone }}" id="clientTelegram" >
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputadders">Улица</label>
+                                            <input name="street" class="form-control" id="inputadders" placeholder="Улица">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputadders_big">Адресное дополнение</label>
+                                            <input name="supplement_address" class="form-control" id="inputadders_big" placeholder="Адресное дополнение">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label>Почтовый индекс и населенный пункт</label>
+                                            <div class="row">
+                                                <div class=" col-md-6">
+                                                    <input name="zip_code" class="form-control" placeholder="">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input name="city" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="kur">Способ доставки</label>
+                                            <select id="kur" name="delivery_method" class="form-control">
+                                                <option selected value="Pickup">Самовывоз</option>
+                                                <option value="Courier delivery">Курьерская доставка</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputadders_big">Страна</label>
+                                            <select name="country" id="inputState" class="form-control">
+                                                {% for country in countries %}
+                                                    <option {% if country.name == "Russian Federation" %}selected{% endif %} value="{{ country.name }}">{{ country.name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="inputadders_big">Сообщение для продавца</label>
+                                            <textarea name="text" name="offerRemark" id="offerRemark" rows="5" title="Сообщение для продавца" class="form-control" cols="36"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+{#                            <div class="price_blocks border_color">#}
+{#                                <div class="price_blocks_title"> <span>Войти в систему или зарегистрироваться</span> </div>#}
+{#                                <div class="price_blocks_coanten">#}
+{#                                    <div class="text_aad">#}
+{#                                        Пожалуйста, войдите в систему. Если у Вас еще нет аккаунта пользователя,#}
+{#                                        просто зарегистрируйтесь за несколько шагов.#}
+{#                                    </div>#}
+
+{#                                    <div class="form-row">#}
+{#                                        <div class="form-group col-md-12">#}
+{#                                            <label for="validationDefault01">Адрес эл. почты</label>#}
+{#                                            <input type="text" class="form-control" id="validationDefault01" placeholder="Адрес эл. почты">#}
+{#                                        </div>#}
+{#                                        <div class="form-group col-md-12">#}
+{#                                            <label for="validationDefault02">Пароль</label>#}
+{#                                            <input type="text" class="form-control" id="validationDefault02" placeholder="Пароль">#}
+{#                                        </div>#}
+{#                                        <div class="form-group col-md-12">#}
+{#                                            <label for="validationDefault02">Повторить пароль</label>#}
+{#                                            <input type="text" class="form-control" id="validationDefault02" placeholder="Повторить пароль">#}
+{#                                        </div>#}
+
+{#                                        <div class="filter-top-chek col-md-12">#}
+{#                                            <div class="checkbox">#}
+{#                                                <input id="chk10" type="checkbox">#}
+{#                                                <label for="chk10">#}
+{#                                                    Я принимаю#}
+{#                                                    <a href="#">Общие условия</a>#}
+{#                                                    <a href="#">положения о защите данных платформы</a>#}
+{#                                                </label>#}
+{#                                            </div>#}
+{#                                            <div class="checkbox">#}
+{#                                                <input id="chk11" type="checkbox">#}
+{#                                                <label for="chk11">#}
+{#                                                    Я принимаю#}
+{#                                                    <a href="#">Общие условия</a>#}
+{#                                                    <a href="#">положения о защите данных платформы</a>#}
+{#                                                </label>#}
+{#                                            </div>#}
+{#                                        </div>#}
+
+{#                                    </div>#}
+
+{#                                </div>#}
+{#                            </div>#}
+
+                            <div class="price_blocks border_color">
+                                <div class="price_blocks_title"> <span>Обзор предложения</span> </div>
+                                <div class="price_blocks_coanten">
+
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-12">
+                                            <div class="text_top_lin">
+                                                Вы оплачиваете стоимость покупки непосредственно продавцу.
+                                                <span>После этого Вы получите от него информацию о возможных способах оплаты.</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 semma_dav">
+
+                                            <div class="row mb-3">
+                                                <div class="col-12 col-md-12">
+                                                    <h3>Ваше ценовое предложение</h3>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-1">
+                                                <div class="col-6 col-md-6">Цена артикула </div>
+                                                <div class="col-6 col-md-6 text-right" id="suggestValue">0</div>
+                                            </div>
+
+                                            <div class="row mb-3 bor_b_lin">
+                                                <div class="col-6 col-md-6">Стоимость пересылки</div>
+                                                <div class="col-6 col-md-6 text-right">По запросу</div>
+                                            </div>
+
+                                            <div class="row font_w mb-3">
+                                                <div class="col-6 col-md-6">Ваше ценовое предложение (вкл. все сборы)</div>
+                                                <div class="col-6 col-md-6 text-right" id="suggestValue1">0</div>
+                                            </div>
+
+{#                                            <div class="row font_w  mb-4">#}
+{#                                                <div class="col-6 col-md-6">В валюте платежа</div>#}
+{#                                                <div class="col-6 col-md-6 text-right">{{ tax }}</div>#}
+{#                                            </div>#}
+
+                                        </div>
+
+                                        <div class="col-12 mb-3">
+                                            <div class="text_inform_sum" style="display:none">
+                                                        <span>
+                                                            Ваше ценовое предложение сильно отличается от цены в объявлении.
+                                                        </span>
+                                                <p>Ценовые предложения, сильно отличающиеся от цены в объявлении,
+                                                    обычно отклоняются. Мы рекомендуем Вам повысить ценовое предложение.</p>
+                                            </div>
+                                        </div>
+
+{#                                        <div class="filter-top-chek col-md-12 mb-3">#}
+{#                                            <div class="checkbox">#}
+{#                                                <input  id="chk12" type="checkbox">#}
+{#                                                <label  for="chk12">#}
+{#                                                    Я хочу отослать ценовое предложение, несмотря на сильное  расхождение с<br> заявленной ценой.#}
+{#                                                </label>#}
+{#                                            </div>#}
+{#                                        </div>#}
+
+                                    </div>
+                                    <button class="btn btn-primary" type="submit" style="width: 100%">Отправить</button>
+                                </div>
+                            </div>
+
+                        </form>
+                        <form action="{{ actionCurrency }}" method="post" style="display: none" enctype="multipart/form-data" id="form-currency">
+                            {% for currency in currencies %}
+                                <input  name="currency{{ currency.symbol_right }}" value="{{ currency.code }}" />
+                                <span>/</span>
+                            {% endfor %}
+                        </form>
+                    </div>
+                </div>
+                <!--end col //-->
+
+
+            </div>
+            <!--end row //-->
+
+        </div>
+        <!--end container //-->
+    </section>
+    <!--start User-cabinet-->
+
+<script>
+    $(document).ready(function() {
+        $('#inputZip').on('input', function() {
+            var value = $(this).val() + $('#inputCurrency').val();
+
+            var tax = "{{ tax }}";
+            tax = parseFloat(tax.substring(0, tax.length - 1));
+            var valFloat = parseFloat(value);
+
+            if(((valFloat * 100) / tax) < 30)
+            {
+                $('.text_inform_sum').show();
+            }
+            else
+            {
+                $('.text_inform_sum').hide();
+            }
+
+            $('#suggestValue').html(value);
+            $('#suggestValue1').html(value);
+        });
+        $('#inputCurrency').on('change', function(e) {
+            e.preventDefault();
+            var name = 'currency' + $(this).val();
+            $('#form-currency input[name=\'code\']').val($("#form-currency input[name='" + name + "']").val());
+            $('#form-currency').submit();
+        });
+    });
+</script>
+{{ footer }}

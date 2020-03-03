@@ -1,0 +1,70 @@
+{{ header }}
+{# <div id="common-home" class="container">
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}{{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div> #}
+
+ 
+{{ menu }} 
+
+<!--strat content tab products-->
+<section class="tab_products">
+    <div class="container">
+        <div class="topPoducBlock">
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="nav nav-tabs tabLinkTime" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="my1nav-home-tab" data-toggle="tab"     href="#my1nav-home"    role="tab"  aria-controls="my1nav-home"     aria-selected="true">{{ hot_offer }}</a>
+                        <a class="nav-item nav-link" id="my2nav-profile-tab"     data-toggle="tab"     href="#my2nav-profile" role="tab"  aria-controls="my2nav-profile"  aria-selected="false">{{ new_items }}</a>
+                        <a class="nav-item nav-link" id="my3nav-contact-tab"     data-toggle="tab"     href="#my3nav-contact" role="tab"  aria-controls="my3nav-contact"  aria-selected="false">{{ hours_to_order }}</a>
+                    </div>
+                </div> 
+            </div>
+            
+            <div class="tab-content" id="nav-tabContent">
+
+                <div class="tab-pane fade show active" id="my1nav-home" role="tabpanel" aria-labelledby="my1nav-home-tab">
+                   
+                    {{ hot_product }}
+
+                </div><!-- tab1 end.// -->
+
+                <div class="tab-pane fade" id="my2nav-profile" role="tabpanel" aria-labelledby="my2nav-profile-tab">
+
+                    {{ last_product }}
+
+                </div> <!-- tab2 end.// -->
+
+                <div class="tab-pane fade" id="my3nav-contact" role="tabpanel" aria-labelledby="my3nav-contact-tab">
+                    
+                    <div class="slider-brands">
+                
+                        <div class="owl-carousel owl-theme" id="topBrenslidre2">
+                            
+                            {{ brands }}
+
+                        </div>
+                                
+                    </div>
+
+                    {{ with_product }}
+
+                </div>
+                
+            </div> <!--end tab-->
+            
+        </div>
+    </div>
+</section>
+<!--end content tab products-->
+
+{{ footer }}

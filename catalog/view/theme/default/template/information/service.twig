@@ -1,0 +1,953 @@
+{{ header }}
+
+    {{ menu }}
+
+    <!--strat content tab products-->
+    <section class="tab_products pb-50 inputcolor styleinput">
+        <div class="container">
+            <div class="topPoducBlock">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="owhiddin-scroServis">
+                            <div class="nav nav-tabs tabLinkTime" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="my1nav-home-tab" data-toggle="tab"     href="#my1nav-home"    role="tab"  aria-controls="my1nav-home"     aria-selected="true">{{ search_by_photo }}</a>
+                                <a class="nav-item nav-link" id="my2nav-profile-tab"     data-toggle="tab"     href="#my2nav-profile" role="tab"  aria-controls="my2nav-profile"  aria-selected="false">{{ exchange }}</a>
+                                <a class="nav-item nav-link" id="my3nav-contact-tab"     data-toggle="tab"     href="#my3nav-contact" role="tab"  aria-controls="my3nav-contact"  aria-selected="false">{{ check_for_orginality }}</a>
+                                {# <a class="nav-item nav-link" id="my4nav-contact-tab"     data-toggle="tab"     href="#my4nav-contact" role="tab"  aria-controls="my4nav-contact"  aria-selected="false">Партнерская программа</a> #}
+                                <a class="nav-item nav-link" id="my5nav-contact-tab"     data-toggle="tab"     href="#my5nav-contact" role="tab"  aria-controls="my5nav-contact"  aria-selected="false">{{ service_center }}</a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                
+                <div class="tab-content bg-white border mt-2" id="nav-tabContent">
+
+                    <div class="tab-pane fade show active" id="my1nav-home" role="tabpanel" aria-labelledby="my1nav-home-tab">
+                        <div class="search-photo  cek">
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-lg-8">
+                                    <div class="s-phot-left">
+                                        <img src="catalog/view/theme/default/images/about/bitmap.png" alt="">
+                                    </div>
+                                    <p class="text-justify">
+                                        Помимо часов современного производства, мы принимаем антикварные модели. 
+                                        Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                        Антикварные часы и хронометры оцениваются значительно выше современных при условии
+                                        хорошего состояния.
+                                    </p>
+                                    <p class="text-justify">
+                                        Помимо  часов современного производства, мы принимаем антикварные модели. 
+                                        Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                        Антикварные часы и хронометры оцениваются значительно выше современных при условии 
+                                        хорошего состояния.
+                                    </p>
+                                    <p class="text-justify">
+                                        Помимо часов современного производства, мы принимаем антикварные модели. 
+                                        Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                        Антикварные часы и хронометры оцениваются значительно выше современных при условии
+                                        хорошего состояния.
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-4">
+                                    <form class="needs-validation" id="search_photo" action="/index.php?route=ajax/service_message/add" method="post" enctype="multipart/form-data">
+                                        <div class="row form-row entrance">
+                                            <div class="col-md-12 mb-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend icon-login">
+                                                        <span class="input-group-text">
+                                                            <img src="catalog/view/theme/default/images/icon/icon-login.svg" alt="">
+                                                        </span>
+                                                    </div>
+                                                    <input  class="form-control" type="text" name="fullname"  placeholder="{{ full_name_text }}">
+                                                    <div class="eror error_fullname"></div>
+                                                </div>                                                
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend icon-login">
+                                                        <span class="input-group-text">
+                                                            <img src="catalog/view/theme/default/images/icon/tel.copy.svg" alt="">
+                                                        </span>
+                                                    </div>
+                                                    <input class="form-control" type="text" name="telephone"   placeholder="{{ phone_text }}">
+                                                    <div class="eror error_telephone"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend icon-login">
+                                                        <span class="input-group-text">
+                                                            <img src="catalog/view/theme/default/images/icon/shape2.svg" alt="">
+                                                        </span>
+                                                    </div>
+                                                    <input class="form-control" type="email" name="email"  placeholder="{{ email_text }}">
+                                                    <div class="eror error_email"></div>
+                                                </div>
+                                            </div>
+                                            <div class="upload__wrapper d-flex">
+                                            <div class="image-upload">
+                                                <div class="image-wrap"><img id="previewImage01" src="{{ image_src }}"/></div>
+                                                <input class="btn-inputfile" id="file01" type="file" name="file[]"/>
+                                                <label for="file01"></label>
+                                            </div>
+                                            <div class="image-upload">
+                                                <div class="image-wrap"><img id="previewImage02" src="{{ image_src }}"/></div>
+                                                <input class="btn-inputfile" id="file02" type="file" name="file[]"/>
+                                                <label for="file02"></label>
+                                            </div>
+                                            <div class="image-upload">
+                                                <div class="image-wrap"><img id="previewImage03" src="{{ image_src }}"/></div>
+                                                <input class="btn-inputfile" id="file03" type="file" name="file[]"/>
+                                                <label for="file03"></label>
+                                            </div>
+                                            </div>
+                                            <div class="eror error_image"></div>
+                                        </div>
+                                        <input type="hidden" value="search_photo" name="type"/>
+                                        <button class="btn btn-primary" type="submit">{{ send }}</button>
+                                    </form>
+                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-uslu-content">
+                            <div class="Our-room">
+                                <span>{{ our_phone }}</span>
+                                <a href="#">+12345678989</a>
+                            </div>
+                            <a href="#"><img src="catalog/view/theme/default/images/icon/viber.svg" alt=""></a>
+                            <a href="#"><img src="catalog/view/theme/default/images/icon/telegram.svg" alt=""></a>
+                            <a href="#"><img src="catalog/view/theme/default/images/icon/whatsapp.svg" alt=""></a>
+                        </div>
+                    </div><!-- tab1 end.// -->
+
+                    <div class="tab-pane fade" id="my2nav-profile" role="tabpanel" aria-labelledby="my2nav-profile-tab">
+                        <div class="search-photo  cek">
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-lg-8">
+                                    <div class="s-phot-left">
+                                        <img src="catalog/view/theme/default/images/about/2.jpg" alt="">
+                                    </div>
+                                    <p class="text-justify">
+                                        Помимо часов современного производства, мы принимаем антикварные модели. 
+                                        Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                        Антикварные часы и хронометры оцениваются значительно выше современных при условии
+                                        хорошего состояния.
+                                    </p>
+                                    <p class="text-justify">
+                                        Помимо  часов современного производства, мы принимаем антикварные модели. 
+                                        Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                        Антикварные часы и хронометры оцениваются значительно выше современных при условии 
+                                        хорошего состояния.
+                                    </p>
+                                    <p class="text-justify">
+                                        Помимо часов современного производства, мы принимаем антикварные модели. 
+                                        Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                        Антикварные часы и хронометры оцениваются значительно выше современных при условии
+                                        хорошего состояния.
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-4">
+                                    <form class="needs-validation" id="exchange" action="/index.php?route=ajax/service_message/add" method="post" enctype="multipart/form-data">
+                                        <div class="row form-row entrance">
+                                            <div class="col-md-12 mb-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend icon-login">
+                                                        <span class="input-group-text">
+                                                            <img src="catalog/view/theme/default/images/icon/icon-login.svg" alt="">
+                                                        </span>
+                                                    </div>
+                                                    <input  class="form-control" type="text" name="fullname"  placeholder="{{ full_name_text }}">
+                                                </div>
+                                                <div class="eror error_fullname"></div>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend icon-login">
+                                                        <span class="input-group-text">
+                                                            <img src="catalog/view/theme/default/images/icon/tel.copy.svg" alt="">
+                                                        </span>
+                                                    </div>
+                                                    <input class="form-control" type="text" name="telephone"   placeholder="{{ phone_text }}">
+                                                    <div class="eror error_telephone"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend icon-login">
+                                                        <span class="input-group-text">
+                                                            <img src="catalog/view/theme/default/images/icon/shape2.svg" alt="">
+                                                        </span>
+                                                    </div>
+                                                    <input class="form-control" type="email" name="email"  placeholder="{{ email_text }}">
+                                                    <div class="eror error_email"></div>
+                                                </div>
+                                            </div>
+                                            <div class="upload__wrapper d-flex">
+                                            <div class="image-upload">
+                                                <div class="image-wrap"><img id="previewImage04" src="{{ image_src }}"/></div>
+                                                <input class="btn-inputfile" id="file04" type="file" name="file[]"/>
+                                                <label for="file04"></label>
+                                            </div>
+                                            <div class="image-upload">
+                                                <div class="image-wrap"><img id="previewImage05" src="{{ image_src }}"/></div>
+                                                <input class="btn-inputfile" id="file05" type="file" name="file[]"/>
+                                                <label for="file05"></label>
+                                            </div>
+                                            <div class="image-upload">
+                                                <div class="image-wrap"><img id="previewImage06" src="{{ image_src }}"/></div>
+                                                <input class="btn-inputfile" id="file06" type="file" name="file[]"/>
+                                                <label for="file06"></label>
+                                            </div>
+                                            </div>
+                                            <div class="eror error_image"></div>
+                                        </div>
+                                        <input type="hidden" value="exchange" name="type"/>
+                                        <button class="btn btn-primary" type="submit">{{ send }}</button>
+                                    </form>
+                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-uslu-content">
+                            <div class="Our-room">
+                                <span>{{ our_phone }}</span>
+                                <a href="#">+12345678989</a>
+                            </div>
+                            <a href="#"><img src="catalog/view/theme/default/images/icon/viber.svg" alt=""></a>
+                            <a href="#"><img src="catalog/view/theme/default/images/icon/telegram.svg" alt=""></a>
+                            <a href="#"><img src="catalog/view/theme/default/images/icon/whatsapp.svg" alt=""></a>
+                        </div>
+                    </div> <!-- tab2 end.// -->
+
+                    <div class="tab-pane fade" id="my3nav-contact" role="tabpanel" aria-labelledby="my3nav-contact-tab">
+                        <div class="search-photo  cek">
+                            <div class="row">
+                                <div class="col-12 col-md-12 col-lg-8">
+                                    <div class="s-phot-left">
+                                        <img src="catalog/view/theme/default/images/about/3.jpg" alt="">
+                                    </div>
+                                    <p class="text-justify">
+                                        Помимо часов современного производства, мы принимаем антикварные модели. 
+                                        Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                        Антикварные часы и хронометры оцениваются значительно выше современных при условии
+                                        хорошего состояния.
+                                    </p>
+                                    <p class="text-justify">
+                                        Помимо  часов современного производства, мы принимаем антикварные модели. 
+                                        Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                        Антикварные часы и хронометры оцениваются значительно выше современных при условии 
+                                        хорошего состояния.
+                                    </p>
+                                    <p class="text-justify">
+                                        Помимо часов современного производства, мы принимаем антикварные модели. 
+                                        Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                        Антикварные часы и хронометры оцениваются значительно выше современных при условии
+                                        хорошего состояния.
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-4">
+                                    <form class="needs-validation" id="check_for_originality" action="/index.php?route=ajax/service_message/add" method="post" enctype="multipart/form-data">
+                                        <div class="row form-row entrance">
+                                            <div class="col-md-12 mb-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend icon-login">
+                                                        <span class="input-group-text">
+                                                            <img src="catalog/view/theme/default/images/icon/icon-login.svg" alt="">
+                                                        </span>
+                                                    </div>
+                                                    <input  class="form-control" type="text" name="fullname"  placeholder="{{ full_name_text }}">
+                                                </div>
+                                                <div class="eror error_fullname"></div>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend icon-login">
+                                                        <span class="input-group-text">
+                                                            <img src="catalog/view/theme/default/images/icon/tel.copy.svg" alt="">
+                                                        </span>
+                                                    </div>
+                                                    <input class="form-control" type="text" name="telephone"   placeholder="{{ phone_text }}">
+                                                    <div class="eror error_telephone"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mb-3">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend icon-login">
+                                                        <span class="input-group-text">
+                                                            <img src="catalog/view/theme/default/images/icon/shape2.svg" alt="">
+                                                        </span>
+                                                    </div>
+                                                    <input class="form-control" type="email" name="email"  placeholder="{{ email_text }}">
+                                                    <div class="eror error_email"></div>
+                                                </div>
+                                            </div>
+                                            <div class="upload__wrapper d-flex">
+                                            <div class="image-upload">
+                                                <div class="image-wrap"><img id="previewImage07" src="{{ image_src }}"/></div>
+                                                <input class="btn-inputfile" id="file07" type="file" name="file[]"/>
+                                                <label for="file07"></label>
+                                            </div>
+                                            <div class="image-upload">
+                                                <div class="image-wrap"><img id="previewImage08" src="{{ image_src }}"/></div>
+                                                <input class="btn-inputfile" id="file08" type="file" name="file[]"/>
+                                                <label for="file08"></label>
+                                            </div>
+                                            <div class="image-upload">
+                                                <div class="image-wrap"><img id="previewImage09" src="{{ image_src }}"/></div>
+                                                <input class="btn-inputfile" id="file09" type="file" name="file[]"/>
+                                                <label for="file09"></label>
+                                            </div>
+                                            </div>
+                                            <div class="eror error_image"></div>
+                                        </div>
+                                        <input type="hidden" value="check_for_originality" name="type"/>
+                                        <button class="btn btn-primary" type="submit">{{ send }}</button>
+                                    </form>
+                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-uslu-content">
+                            <div class="Our-room">
+                                <span>{{ our_phone }}</span>
+                                <a href="#">+12345678989</a>
+                            </div>
+                            <a href="#"><img src="catalog/view/theme/default/images/icon/viber.svg" alt=""></a>
+                            <a href="#"><img src="catalog/view/theme/default/images/icon/telegram.svg" alt=""></a>
+                            <a href="#"><img src="catalog/view/theme/default/images/icon/whatsapp.svg" alt=""></a>
+                        </div>
+                    </div> <!-- tab3 end.// -->
+
+                    <div class="tab-pane fade" id="my4nav-contact" role="tabpanel" aria-labelledby="my4nav-contact-tab">
+                    
+                                    
+                        <div class="row text-center justify-content-center mt-5 affiliate-program">
+
+                            <div class="col-6 col-sm-6 col-lg-3">
+                                <div class="c-img">
+                                    <img alt="image" class="fdb-icon" src="catalog/view/theme/default/images/icon/c1.svg">
+                                </div>
+                                <p>Преимущество</p>
+                            </div>  <!-- col end.// -->
+                    
+                            <div class="col-6 col-sm-6 col-lg-3">
+                                <div class="c-img">
+                                    <img alt="image" class="fdb-icon" src="catalog/view/theme/default/images/icon/c2.svg">
+                                </div>
+                                <p>Преимущество</p>
+                            </div> <!-- col end.// -->
+                    
+                            <div class="col-6 col-sm-6 col-lg-3">
+                                <div class="c-img">
+                                    <img alt="image" class="fdb-icon" src="catalog/view/theme/default/images/icon/c3.svg">
+                                </div>
+                                <p>Преимущество</p>
+                            </div>  <!-- col end.// -->
+                    
+                            <div class="col-6 col-sm-6 col-lg-3">
+                                <div class="c-img">
+                                        <img alt="image" class="fdb-icon" src="catalog/view/theme/default/images/icon/c4.svg">
+                                </div>
+                                <p>Преимущество</p>
+                            </div>  <!-- col end.// -->
+
+                        </div> <!-- row end.// -->
+                        
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2 mb-3">
+                                
+                                <div id="accordion">
+
+                                    <div class="card  mb-3">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    1. Этап партнерской программы
+                                            </button>
+                                            </h5>
+                                        </div>
+                                    
+                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div> <!-- card1 end.// -->
+
+                                    <div class="card  mb-3">
+                                        <div class="card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        3. Этап партнерской программы
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                            <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div> <!-- card2 end.// -->
+
+                                    <div class="card mb-3">
+                                        <div class="card-header" id="headingThree">
+                                            <h5 class="mb-0">
+                                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    3. Этап партнерской программы
+                                            </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                            <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div> <!-- card3 end.// -->
+                                
+                                </div> <!-- accordion end.// -->
+                            
+                            </div> <!-- col end.// -->
+                        </div>  <!-- row end.// -->
+
+                        <div class="row text-center progrsm">
+
+                            <div class="col-md-8 offset-md-2">
+                                <form class="needs-validation" id="partners_program" action="/index.php?route=ajax/service_message/add" method="post" enctype="multipart/form-data">
+
+                                    <div class="row form-row entrance">
+
+                                        <div class="col-md-6 mb-3">
+
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend icon-login">
+                                                    <span class="input-group-text">
+                                                        <img src="catalog/view/theme/default/images/icon/icon-login.svg" alt="">
+                                                    </span>
+                                                </div>
+                                                <input  class="form-control" type="text" name="fullname"  placeholder="{{ full_name_text }}">
+                                                <div class="eror error_fullname"></div>
+                                            </div>
+                                            
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend icon-login">
+                                                    <span class="input-group-text">
+                                                        <img src="catalog/view/theme/default/images/icon/tel.copy.svg" alt="">
+                                                    </span>
+                                                </div>
+                                                <input class="form-control" type="text" name="telephone"   placeholder="{{ phone_text }}">
+                                                <div class="eror error_telephone"></div>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend icon-login">
+                                                    <span class="input-group-text">
+                                                        <img src="catalog/view/theme/default/images/icon/shape2.svg" alt="">
+                                                    </span>
+                                                </div>
+                                                <input class="form-control" type="email" name="email"  placeholder="{{ email_text }}">
+                                                <div class="eror error_email"></div>
+                                            </div>
+                                        </div><!-- col end.// -->
+
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-group">
+                                                <textarea class="form-control"  rows="3"></textarea>
+                                            </div>
+                                        </div><!-- col end.// -->
+
+                                        <div class="col-md-6 mb-3">
+                                            <button class="btn btn-primary" type="submit">{{ send }}</button>
+                                        </div><!-- col end.// -->
+
+                                    </div> <!-- row end.// -->
+                                    
+                                </form>  <!-- form end.// -->
+                            </div>  <!-- col end.// -->
+
+                        </div>  <!-- row end.// -->
+
+                    </div> <!-- tab4 end.// -->
+
+                    <div class="tab-pane fade" id="my5nav-contact" role="tabpanel" aria-labelledby="my5nav-contact-tab">
+                        <div class="service-center">
+                                
+                                <div class="row mt-3 paddingnn">
+                                    <div class="col-12 col-md-3">
+                                        <div class="abuot-img mini">
+                                            <img src="catalog/view/theme/default/images/about/1.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <div class="service-info">
+                                            <span class="title">Название организации</span>
+                                            <ul>
+                                                <li>
+                                                    <p>Пн–Пт</p>
+                                                    <span>08:00-18:00</span>
+                                                </li>
+                                                <li>
+                                                    <p>Сб</p>
+                                                    <span>08:00-18:00</span>
+                                                </li>
+                                                <li>
+                                                    <p>Вс</p>
+                                                    <span>Выходной</span>
+                                                </li>
+                                            </ul>
+                                            <div class="service-aders">Адрес, Адрес, Адрес</div>
+                                            <div class="service-photo">+12345678901</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="service-text">
+                                            <p class="text-justify">
+                                                Помимо часов современного производства, мы принимаем антикварные модели. 
+                                                Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                                Антикварные часы и хронометры оцениваются значительно выше современных при условии
+                                                хорошего состояния.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3 paddingnn">
+                                    <div class="col-12 col-md-3">
+                                        <div class="abuot-img mini">
+                                            <img src="catalog/view/theme/default/images/about/1.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <div class="service-info">
+                                            <span class="title">Название организации</span>
+                                            <ul>
+                                                <li>
+                                                    <p>Пн–Пт</p>
+                                                    <span>08:00-18:00</span>
+                                                </li>
+                                                <li>
+                                                    <p>Сб</p>
+                                                    <span>08:00-18:00</span>
+                                                </li>
+                                                <li>
+                                                    <p>Вс</p>
+                                                    <span>Выходной</span>
+                                                </li>
+                                            </ul>
+                                            <div class="service-aders">Адрес, Адрес, Адрес</div>
+                                            <div class="service-photo">+12345678901</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="service-text">
+                                            <p class="text-justify">
+                                                Помимо часов современного производства, мы принимаем антикварные модели. 
+                                                Критерии их оценки такие же, однако существенную роль играет возраст изделия. 
+                                                Антикварные часы и хронометры оцениваются значительно выше современных при условии
+                                                хорошего состояния.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row text-center progrsm justify-content-center" style="margin-top: 20px">
+
+                                    <div class="col-12  col-sm-12 col-md-9  mt-5">
+                                        <form class="needs-validation" id="service_center" action="/index.php?route=ajax/service_message/add" method="post" enctype="multipart/form-data">
+
+                                            <div class="row form-row entrance">
+
+                                                <div class="col-md-6 ">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend icon-login">
+                                                            <span class="input-group-text">
+                                                                <img src="catalog/view/theme/default/images/icon/icon-login.svg" alt="">
+                                                            </span>
+                                                        </div>
+                                                        <input  class="form-control" type="text" name="fullname"  placeholder="{{ full_name_text }}">
+                                                        <div class="eror error_fullname"></div>
+                                                    </div>
+                                                    <div class="input-group  mb-3">
+                                                        <div class="input-group-prepend icon-login">
+                                                            <span class="input-group-text">
+                                                                <img src="catalog/view/theme/default/images/icon/tel.copy.svg" alt="">
+                                                            </span>
+                                                        </div>
+                                                        <input class="form-control" type="text" name="telephone"   placeholder="{{ phone_text }}">
+                                                        <div class="eror error_telephone"></div>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend icon-login">
+                                                            <span class="input-group-text">
+                                                                <img src="catalog/view/theme/default/images/icon/shape2.svg" alt="">
+                                                            </span>
+                                                        </div>
+                                                        <input class="form-control" type="email" name="email"  placeholder="{{ email_text }}">
+                                                        <div class="eror error_email"></div>
+                                                    </div>
+                                                    <div class="upload__wrapper d-flex ">
+                                                        <div class="image-upload">
+                                                            <div class="image-wrap"><img id="previewImage013" src="{{ image_src }}"/></div>
+                                                            <input class="btn-inputfile" id="file013" type="file" name="file[]"/>
+                                                            <label for="file013"></label>
+                                                        </div>
+                                                        <div class="image-upload">
+                                                            <div class="image-wrap"><img id="previewImage014" src="{{ image_src }}"/></div>
+                                                            <input class="btn-inputfile" id="file014" type="file" name="file[]"/>
+                                                            <label for="file014"></label>
+                                                        </div>
+                                                        <div class="image-upload">
+                                                            <div class="image-wrap"><img id="previewImage015" src="{{ image_src }}"/></div>
+                                                            <input class="btn-inputfile" id="file015" type="file" name="file[]"/>
+                                                            <label for="file015"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="eror error_image"></div>
+                                                </div><!-- col end.// -->
+
+                                                <div class="col-md-6 pb-30">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control"  rows="3"></textarea>
+                                                    </div>
+                                                </div><!-- col end.// -->
+                                                <input type="hidden" value="service_center" name="type"/>
+                                                <div class="col-md-12 text-center">
+                                                    <button class="btn btn-primary" type="submit">{{ send }}</button>
+                                                </div><!-- col end.// -->
+
+                                            </div> <!-- row end.// -->
+                                            
+                                        </form>  <!-- form end.// -->
+                                    </div>  <!-- col end.// -->
+
+                                </div>  <!-- row end.// -->
+
+                        </div>
+                    </div> <!-- tab5 end.// -->
+
+                </div> <!--end tab-->
+                
+            </div>
+        </div>
+    </section>
+    <!--end content tab products-->
+
+    <script>
+        $('#search_photo').submit(function(e) {
+            e.preventDefault();
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                data:  new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data)
+                {
+                    error = data['error'];
+
+                    if(error != null){
+
+                        if(error['email']) {
+                            $('#search_photo').find('.error_email').html(error['email']);
+                        }
+                        else{
+                            $('#search_photo').find('.error_email').html("");
+                        }
+                        if(error['fullname']) {
+                            $('#search_photo').find('.error_fullname').html(error['fullname']);
+                        }
+                        else{
+                            $('#search_photo').find('.error_fullname').html("");
+                        }
+                        if(error['telephone']) {
+                            $('#search_photo').find('.error_telephone').html(error['telephone']);
+                        }
+                        else{
+                            $('#search_photo').find('.error_telephone').html("");
+                        }
+                        if(error['image']) {
+                            $('#search_photo').find('.error_image').html(error['image']);
+                        }
+                        else{
+                            $('#search_photo').find('.error_image').html("");
+                        }
+                        
+                    }
+                    else{
+                        $.toast().reset('all');
+                        $.toast({
+                            heading: data['success'],
+                            position: 'top-right',
+                            stack: false,
+                            icon: 'info'
+                        })
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
+                    }
+                         
+                },
+                error: function(){
+                    alert("Error");
+                }
+            })
+        });
+        $('#exchange').submit(function(e) {
+            e.preventDefault();
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                data:  new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data)
+                {
+                    error = data['error'];
+
+                    if(error != null){
+
+                        if(error['email']) {
+                            $('#exchange').find('.error_email').html(error['email']);
+                        }
+                        else{
+                            $('#exchange').find('.error_email').html("");
+                        }
+                        if(error['fullname']) {
+                            $('#exchange').find('.error_fullname').html(error['fullname']);
+                        }
+                        else{
+                            $('#exchange').find('.error_fullname').html("");
+                        }
+                        if(error['telephone']) {
+                            $('#exchange').find('.error_telephone').html(error['telephone']);
+                        }
+                        else{
+                            $('#exchange').find('.error_telephone').html("");
+                        }
+                        if(error['image']) {
+                            $('#exchange').find('.error_image').html(error['image']);
+                        }
+                        else{
+                            $('#exchange').find('.error_image').html("");
+                        }
+                        
+                    }
+                    else{
+                        $.toast().reset('all');
+                        $.toast({
+                            heading: data['success'],
+                            position: 'top-right',
+                            stack: false,
+                            icon: 'info'
+                        })
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
+                    }
+                         
+                },
+                error: function(){
+                    alert("Error");
+                }
+            })
+        });
+        $('#check_for_originality').submit(function(e) {
+            e.preventDefault();
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                data:  new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data)
+                {
+                    error = data['error'];
+
+                    if(error != null){
+
+                        if(error['email']) {
+                            $('#check_for_originality').find('.error_email').html(error['email']);
+                        }
+                        else{
+                            $('#check_for_originality').find('.error_email').html("");
+                        }
+                        if(error['fullname']) {
+                            $('#check_for_originality').find('.error_fullname').html(error['fullname']);
+                        }
+                        else{
+                            $('#check_for_originality').find('.error_fullname').html("");
+                        }
+                        if(error['telephone']) {
+                            $('#check_for_originality').find('.error_telephone').html(error['telephone']);
+                        }
+                        else{
+                            $('#check_for_originality').find('.error_telephone').html("");
+                        }
+                        if(error['image']) {
+                            $('#check_for_originality').find('.error_image').html(error['image']);
+                        }
+                        else{
+                            $('#check_for_originality').find('.error_image').html("");
+                        }
+                        
+                    }
+                    else{
+                        $.toast().reset('all');
+                        $.toast({
+                            heading: data['success'],
+                            position: 'top-right',
+                            stack: false,
+                            icon: 'info'
+                        })
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
+                    }
+                         
+                },
+                error: function(){
+                    alert("Error");
+                }
+            })
+        });
+        $('#partners_program').submit(function(e) {
+            e.preventDefault();
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                data:  new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data)
+                {
+                    error = data['error'];
+
+                    if(error != null){
+
+                        if(error['email']) {
+                            $('#partners_program').find('.error_email').html(error['email']);
+                        }
+                        else{
+                            $('#partners_program').find('.error_email').html("");
+                        }
+                        if(error['fullname']) {
+                            $('#partners_program').find('.error_fullname').html(error['fullname']);
+                        }
+                        else{
+                            $('#partners_program').find('.error_fullname').html("");
+                        }
+                        if(error['telephone']) {
+                            $('#partners_program').find('.error_telephone').html(error['telephone']);
+                        }
+                        else{
+                            $('#partners_program').find('.error_telephone').html("");
+                        }
+                        
+                    }
+                    else{
+                        $.toast().reset('all');
+                        $.toast({
+                            heading: data['success'],
+                            position: 'top-right',
+                            stack: false,
+                            icon: 'info'
+                        })
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
+                    }
+                         
+                },
+                error: function(){
+                    alert("Error");
+                }
+            })
+        });
+        $('#service_center').submit(function(e) {
+            e.preventDefault();
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                data:  new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data)
+                {
+                    error = data['error'];
+
+                    if(error != null){
+
+                        if(error['email']) {
+                            $('#service_center').find('.error_email').html(error['email']);
+                        }
+                        else{
+                            $('#service_center').find('.error_email').html("");
+                        }
+                        if(error['fullname']) {
+                            $('#service_center').find('.error_fullname').html(error['fullname']);
+                        }
+                        else{
+                            $('#service_center').find('.error_fullname').html("");
+                        }
+                        if(error['telephone']) {
+                            $('#service_center').find('.error_telephone').html(error['telephone']);
+                        }
+                        else{
+                            $('#service_center').find('.error_telephone').html("");
+                        }
+                        if(error['image']) {
+                            $('#service_center').find('.error_image').html(error['image']);
+                        }
+                        else{
+                            $('#service_center').find('.error_image').html("");
+                        }
+                        
+                    }
+                    else{
+                        $.toast().reset('all');
+                        $.toast({
+                            heading: data['success'],
+                            position: 'top-right',
+                            stack: false,
+                            icon: 'info'
+                        })
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
+                    }
+                         
+                },
+                error: function(){
+                    alert("Error");
+                }
+            })
+        });
+        
+        
+    </script>  
+{{ footer }}

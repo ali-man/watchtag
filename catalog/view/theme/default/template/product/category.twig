@@ -1,0 +1,66 @@
+{{ header }}
+
+    
+    {{ menu }}
+
+    <!--strat content tab products-->
+    <section class="tab_products">
+        <div class="container">
+            <div class="topPoducBlock">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="nav nav-tabs tabLinkTime" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="my1nav-home-tab" data-toggle="tab"     href="#my1nav-home"    role="tab"  aria-controls="my1nav-home"     aria-selected="true">{{ all }} {{ heading_title }}</a>
+                            <a class="nav-item nav-link" id="my2nav-profile-tab"     data-toggle="tab"     href="#my2nav-profile" role="tab"  aria-controls="my2nav-profile"  aria-selected="false">{{ brands_text }}</a>
+                            <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal2">{{ filter_text }}</a>
+                        </div>
+                    </div> 
+                </div>
+                
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="my1nav-home" role="tabpanel" aria-labelledby="my1nav-home-tab">
+                
+                    {{ categoryProducts }}
+
+                </div><!-- tab1 end.// -->
+
+                <div class="tab-pane fade" id="my2nav-profile" role="tabpanel" aria-labelledby="my2nav-profile-tab">
+
+                    {{ manufacturer }}    
+
+                </div> <!-- tab2 end.// -->
+            
+            </div> <!--end tab-->
+                
+            </div>
+        </div>
+    </section>
+    <!--end content tab products-->
+
+
+        <!-- Modal -->
+    <div class="mymoodal modal right fade filternawZ" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="shut-ix click-filter"  data-dismiss="modal" aria-label="Close">
+            <span class="span2"></span>
+            <span class="span3"></span>
+        </div>    
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button> -->
+               
+                    <div class="modal-body"> 
+                        {{ filter }}
+                    </div>
+               
+
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div>
+    <!-- modal -->
+
+{{ footer }} 

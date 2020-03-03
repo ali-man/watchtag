@@ -1,0 +1,58 @@
+
+
+
+<form action="">
+  <div class="nawefilter">{{ heading_title }}</div>
+  <div id="accordion1" class="accordionZZ">
+    {% for filter_group in filter_groups %}
+      <div class="card">
+
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <a class="btn btn-link" data-toggle="collapse" data-target="#collapse{{ filter_group.filter_group_id }}"
+                  aria-expanded="{% if loop.index == 1 %}true{% else %}false{% endif %}" aria-controls="collapse{{ filter_group.filter_group_id }}">
+                  {{ filter_group.name }}
+            </a>
+          </h5>
+        </div>
+        <div id="collapse{{ filter_group.filter_group_id }}" class="collapse {% if loop.index == 1 %} show {% endif %}" aria-labelledby="headingOne"
+        data-parent="#accordion1">
+          <div class="card-body">
+            {% for filter in filter_group.filter %}
+              <div class="checkbox">
+                {% if filter.filter_id in filter_category %}
+                  <input id="chkD{{ filter.filter_id }}"  name="filterD[]" value="{{ filter.filter_id }}" type="checkbox" checked="checked" />
+                {% else %}
+                  <input id="chkD{{ filter.filter_id }}"  name="filterD[]" value="{{ filter.filter_id }}" type="checkbox" />
+                {% endif %}
+                <label for="chkD{{ filter.filter_id }}">
+                    {% if filter.name|length > 21 %}
+                        <marquee behavior=scroll direction="left" scrollamount="5">
+                            {{ filter.name }}
+                        </marquee>
+                    {% else %}
+                        {{ filter.name }}
+                    {% endif %}
+                </label>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <button class="btn btn-primary mb-3" type="button" id="button-filterD">{{ apply }}</button>
+</form>
+
+<script>
+	$('#button-filterD').on('click', function() {
+		filter = [];
+	
+		$('input[name^=\'filterD\']:checked').each(function(element) {
+			filter.push(this.value);
+		});
+	
+		location = '{{ action }}&filter=' + filter.join(',');
+	});
+</script>
+

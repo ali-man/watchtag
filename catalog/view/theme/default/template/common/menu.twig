@@ -1,0 +1,186 @@
+<!--start Top baner & info-->
+<section class="topBaner p-50">
+    <div class="container">
+
+        <div class="new_desktop_header">
+            <div class="row">
+                <div class="col-5  col-md-5 col-lg-4 col-xl-4">
+                    <div class="tBImagea">
+                        {% if brand %}
+                            <img src="{{ brand.thumb }}" alt="" class="imga">
+                        {% else %}
+                            <img src="{{ thumb }}" alt="" class="imga">
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="col-7  col-md-7 col-lg-8 col-xl-8">
+                    <div class="info_pagas">
+                        <div class="title_pages">
+                            {{ title }}
+                        </div>
+                        <div class="button_pages">
+                            <a href="#" class="link_but_left" data-toggle="modal" data-target="#exampleModalCenter">{{ to_contact_us }}</a>
+                            <a href="#"  class="link_but_right" data-toggle="modal" data-target="#exampleModalCentersms">{{ send_message }}</a>
+                        </div>
+                        <ul class="topUl d-flex">
+                            <li>
+                                <span>
+                                    <span class="ulsaon">
+                                    {{ count_brands }}                                         
+                                    </span>
+                                    {{ brands }}
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <span class="ulsaon">
+                                    {{ count_products }}                                           
+                                    </span>
+                                    {{ products }}
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <span class="ulsaon">
+                                        {{ count_users }}                                         
+                                    </span>
+                                    {{ users }}
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="tetx_pages">
+                            {{ text }} 
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+        <div class="new_mabile_header">
+            <div class="row">
+
+                <div class="col-5  col-md-5 col-lg-4 col-xl-4">
+                    <div class="tBImagea">
+                        <img src="catalog/view/theme/default/images/baner/bitmap.png" alt="" class="imga">
+                    </div>
+                </div>
+
+                <div class="col-7  col-md-7 col-lg-8 col-xl-8 padding_o">
+                    <div class="info_pagas">
+                        <ul class="topUl d-flex">
+                            <li>
+                                <span>
+                                    <span class="ulsaon">
+                                        {{ count_brands }}
+                                    </span>
+                                    {{ brands }}
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <span class="ulsaon">
+                                        {{ count_products }}
+                                    </span>
+                                    {{ products }}
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <span class="ulsaon">
+                                        {{ count_users }}
+                                    </span>
+                                    {{ users }}
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="mobil-he-contact">
+                            <div class="button_pages">
+                                <a href="#" class="link_but_right" data-toggle="modal"
+                                    data-target="#exampleModalCentersms">{{ write }}</a>
+                                <a href="#" class="link_but_right" data-toggle="modal"
+                                    data-target="#exampleModalCenter">
+                                    <i class="icon-mobil-tel"></i>
+                                </a>
+                            </div>
+
+                            <div class="my-lang">
+                                <div class="dropdown ">
+                                    <button type="button"
+                                        class="btn btn-primary dropdown-toggle d-flex align-items-center"
+                                        data-toggle="dropdown">
+
+                                    </button>
+                                    <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">      
+                                        <div class="dropdown-menu">
+                                            {% for language in languages %}
+                                                <div class="pa-10 d-flex align-items-center">
+                                                    <a class="dropdown-item language-select" href="#" name="{{ language.code }}">{{ language.name }}</a>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <input type="hidden" name="code" value="" />
+                                        <input type="hidden" name="redirect" value="{{ redirect }}" />
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tetx_pages">
+                            {{ text }}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mobiltt col-12">
+
+                    <div class="tetx_pages">
+                        {{ text }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end Top baner & info-->
+
+{% if categories %}
+  <!--Start Top Berendi richtime-->
+  <section class="tBrendRichtime">
+      <div class="container">
+          <div class="row">
+            {% for category in categories %}
+                <div class="col-3 col-sm-2">
+                    <div class="brend_link">
+                        <a href="{{ category.href }}">
+                            <div class="brendimges {% if activeCategoryId and category.id == activeCategoryId %} action {% endif %}">
+                                <img src="{{ category.image }}" alt="" class="imga">
+                            </div>
+                            <div class="brendName">
+                                <span>{{ category.name }}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+                <div class="col-3 col-sm-2">
+                    <div class="brend_link">
+                        <a href="/index.php?route=information/service">
+                            <div class="brendimges {% if activeCategoryId == -1 %}action{% endif %}">
+                                <img src="catalog/view/theme/default/images/baner/b4.png" alt="" class="imga">
+                            </div>
+                            <div class="brendName">
+                                <span>{{ services }}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+          </div>
+      </div>
+  </section>
+  <!--End top Berendi richtime-->
+{% endif %} 

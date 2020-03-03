@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="{{ direction }}" lang="{{ lang }}">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="yandex-verification" content="a6848190c32189e0" />
+<title>{{ title }}</title>
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+
+<link rel="stylesheet" href="catalog/view/theme/default/stylesheet/scss/helpers/owl.carousel.min.css">
+<link rel="stylesheet" href="catalog/view/theme/default/stylesheet/scss/helpers/owl.theme.default.min.css">
+<!-- link bootstrap  -->
+<link rel="stylesheet" href="catalog/view/theme/default/stylesheet/scss/helpers/bootstrap.min.css">
+<!-- My style site  -->
+<link rel="stylesheet" href="catalog/view/theme/default/stylesheet/css/main.min.css">
+<link rel="stylesheet" href="catalog/view/theme/default/stylesheet/css/responsive.min.css">
+<link rel="stylesheet" href="catalog/view/theme/default/stylesheet/css/jquery.toast.css">
+{# {% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+{% for analytic in analytics %}
+{{ analytic }}
+{% endfor %} #}
+<script src="catalog/view/js/jquery.min.js"></script>
+</head>
+<body class="min_height">
+
+<!--start  loaded //-->
+<div class="my-style-pro">
+    <div class="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>  
+</div>
+<!--end  loaded  //-->
+
+<header class="wheadwer">
+    <div class="haedar-scrol">
+        <div class="container">
+            <nav class="navbar navbar-expand-md no-gutters">
+                <div class="col-4 text-left d-flex logo-site">
+                    {% if logo %}
+                        <a href="{{ home }}" class="logoo">
+                            <img src="{{ logo }}" height="30" alt="image">
+                        </a>
+                    {% else %}
+                        <a href="{{ home }}">{{ name }}</a>
+                    {% endif %}
+
+                    {{ language }}
+                    {{ currency }}
+                </div>
+        
+                {{ search }}
+        
+                <ul class="header-right-menu  col-2 justify-content-end  d-md-flex">
+
+                    <li class="dropdown_item lenta-item">
+                        <a href="{{ list }}" class=" lenta-icon"></a>
+                    </li><!--end li  dropdown_item-->
+
+                    {{ wish }}
+                
+                    {{ cart }}
+                    {% if logged %}
+                        <li class="usercan-item">
+                            <a href="{{ account }}" class="usercan-icon"></a>
+                        </li><!--end li  dropdown_item-->
+                    {% else %}
+                        <li class="usercan-item">
+                            <a href="{{ login }}" class="usercan-icon"></a>
+                        </li><!--end li  dropdown_item-->
+                    {% endif %}
+                    <li class="dropdown_item hambuger-item">
+                        <a class="drp  hambuger-icon" href="#"></a>
+                        <ul class="dropdown_body">
+                            <li class="d_body-block-itme">
+                                <ul class="drp_menu-body">
+                                    <li>
+                                        <a href="/upload/index.php?route=information/about_us">{{ about_us }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/upload/index.php?route=information/service">{{ services }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="/upload/index.php?route=information/contact">{{ contact_us }}</a>
+                                    </li>
+                                    {% for category in categories%}        
+                                        <li>
+                                            <a href="{{ category.href }}">{{ category.name }}</a>
+                                        </li>
+                                    {% endfor %}        
+                                </ul>
+                            </li>
+                            <!-- <li class="d_body-block-itme">
+                                <a href="#">footer</a>
+                            </li> -->
+                        </ul>
+                    </li><!--end li  dropdown_item-->
+
+                </ul>
+                
+                <div class="col-12">
+                    <div class="another-block">
+                        <a href="#"></a>
+                        <span>{{ product_detail }}</span>
+                    </div>
+                </div>
+
+            </nav>
+        </div>   
+    </div>
+</header>
+

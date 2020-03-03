@@ -1,0 +1,47 @@
+
+
+
+<form action="">
+  <div class="scrolFilter">
+    <div class="hiddi_pol">
+      <div class="filter-titles">{{ heading_title }}</div>
+        {% for filter_group in filter_groups %}
+
+              <div class="collapse2">
+                  <div class="titleNone">{{ filter_group.name }}</div>
+                  <div class="titleNone-block titleNone-block-filter">
+                    <div class="filter-top-chek">
+                      {% for filter in filter_group.filter %}
+                        <div class="checkbox">
+                          {% if filter.filter_id in filter_category %}
+                            <input id="chk{{ filter.filter_id }}"  name="filterM[]" value="{{ filter.filter_id }}" type="checkbox" checked="checked" />
+                          {% else %}
+                            <input id="chk{{ filter.filter_id }}"  name="filterM[]" value="{{ filter.filter_id }}" type="checkbox" />
+                          {% endif %}
+                          <label for="chk{{ filter.filter_id }}">{{ filter.name }}</label>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+              </div>
+
+        {% endfor %}
+      </div>
+  </div>
+  <div class="baton">
+      <button class="btn btn-primary" type="button" id="button-filter">{{ apply }}</button>
+  </div>
+</form>
+
+<script>
+	$('#button-filter').on('click', function() {
+		filter = [];
+	
+		$('input[name^=\'filter\']:checked').each(function(element) {
+			filter.push(this.value);
+		});
+	
+		location = '{{ action }}&filter=' + filter.join(',');
+	});
+</script>
+

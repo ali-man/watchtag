@@ -1,0 +1,77 @@
+{{ header }}
+<!--start page-cart-->
+<section class="page-cart-my mt-5 mb-5 inputcolor">
+    <div class="container">       
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="block-title mb-3">{{ basket }}</h2>
+            </div><!--end col //-->   
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <div class="my-page-number bg-white">
+                    {% for product in products %}
+                        <div class="row">
+                            <div class="col-12 col-sm-6  col-md-6">
+                                <div class="praduc-left">
+                                    <a>
+                                        <img src="{{ product.thumb }}" alt="">
+                                        <div class="product-left-info">
+                                            <span class="name-of-product">{{ product.name }}</span>
+                                            <span class="second-line">{{ product.price }}</span>
+                                            
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-sm-6  col-md-6">
+                                <div class="cart-praduc-right">
+                                    <div class="input-group">
+                                        <input type="text" name="quant{{ product.cart_id }}" class="form-control input-number" value="{{ product.quantity }}" min="1" max="10">
+                                        
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number-cart" data-type="minus" data-field="quant{{ product.cart_id }}">
+                                                <span class="glyphicon glyphicon-minus">-</span>
+                                            </button>
+                                        </span>
+                                    
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number-cart" data-type="plus" data-field="quant{{ product.cart_id }}">
+                                                <span class="glyphicon glyphicon-plus">+</span>
+                                            </button>
+                                        </span>
+                                        <input type="hidden" value="{{ product.cart_id }}" name="quantityCartIdquant{{ product.cart_id }}"/>
+                                        <input name="quantityProductIdquant{{ product.cart_id }}" type="hidden" value="{{ product.product_id }}">
+                                    </div>
+                                    <div class="cost-prag" id="cost-prag{{ product.product_id }}">{{ product.total }}</div>
+                                    <div class="delet-ix" onclick="cart.remove('{{ product.cart_id }}');"></div> 
+                                </div>
+                            
+                            </div>
+                        </div><!--end row //--> 
+                    {% endfor %}
+                    <div class="Total">
+                        <div class="amount">
+                            <span>{{ column_quantity }}: </span>
+                            <span id="amount">{{ allQuantity }}</span>
+                        </div>
+                        <div class="payment">
+                            <span>{{ column_total }}: </span>
+                            <span class="font18">{{ totals[0].text }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end col //-->
+            <div class="col-12 col-sm-12 col-md-4">
+                <div class="user-cart">
+
+                    <a href="{{ checkout }}" class="btn btn-primary" >{{ button_checkout }}</a>
+
+                </div>
+            </div><!--end col //-->
+        </div>  <!--end row //-->
+      
+    </div>  <!--end container //-->
+</section>
+<!--start User-cabinet-->
+{{ footer }} 
