@@ -145,12 +145,12 @@ $(document).ready(function() {
 				// attributes begin
 
 
-				var filter_groups = data['filter_groups']
+				var filter_groups = data['filter_groups'];
 				if(filter_groups.length > 0){
 					$resFilters = '';
 					for($i = 0; $i < filter_groups.length; $i++) {
 						filterGroup = filter_groups[$i];
-						$resFilters += `<div class="titleNone titleNone11">`+ filterGroup['name'] +`</div><div class="titleNone-block titleNone-block11">`;
+						$resFilters += `<div class="titleNone titleNone11">`+ filterGroup['name'] + ': ';
 						for($j = 0; $j < filterGroup['filter'].length; $j++){
 							$resFilters += filterGroup['filter'][$j]['name'];
 							if(filterGroup['filter'].length > 1 && $j != filterGroup['filter'].length-1){
@@ -161,18 +161,19 @@ $(document).ready(function() {
 						$resFilters += `</div>`;
 					}
 					$('.call-you-madal').find('.produc-modal-info').find('.collapse2').html($resFilters);
-					$(".titleNone-block11").hide();
-					$(".titleNone11").click(function () {
-						$(this).next(".titleNone-block11").slideToggle(200);
-						$(this).siblings().next(".titleNone-block11").slideUp(200);
-					});
+					// $(".titleNone-block11").hide();
+					// $(".titleNone11").click(function () {
+					// 	$(this).next(".titleNone-block11").slideToggle(200);
+					// 	$(this).siblings().next(".titleNone-block11").slideUp(200);
+					// });
 				}
 				else{
 					$resFilters = `<span class="modal-type">No Attributes</span>`;
 					$('.call-you-madal').find('.produc-modal-info').find('.collapse2').html($resFilters);
 				}
 				// attributes end
-				$('#collapseOneModal').removeClass('show');
+				$('#collapseOneModal').addClass('show');
+				// $('#collapseOneModal').removeClass('show');
 				$('#headingOneq').find('button').removeClass('a-is-active');
 				// Modal show
 				setTimeout(function(){
