@@ -5,6 +5,13 @@ class ControllerCommonSearch extends Controller {
 
 		$data['text_search'] = $this->language->get('text_search');
 
+		$this->load->model('catalog/manufacturer');
+		$this->load->model('catalog/product');
+		$this->load->model('catalog/manufacturer');
+		$brands = $this->model_catalog_manufacturer->getManufacturers();
+		$data['count_brands'] = count($brands);
+		$data['count_products'] = $this->model_catalog_product->getTotalProducts([]);
+
 		if (isset($this->request->get['search'])) {
 			$data['search'] = $this->request->get['search'];
 		} else {
