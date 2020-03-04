@@ -44,9 +44,17 @@ $(document).ready(function() {
 				$('#loader').show();
 				$('#pragucModal').modal('show');
 				data = json['success'];
+				console.log(data);
 				window.history.pushState('page2', 'Title', '/index.php?route=product/product&product_id=' + product_id);
 					
-				$('.call-you-madal').find('.produc-modal-info-top').find('.p-title-modal').html(data['name']);					
+				$('.call-you-madal').find('.produc-modal-info-top').find('.p-title-modal').html(data['name']);
+				if (data['stock_status'] == "По запросу") {
+					$('.call-you-madal').find('.produc-modal-info-top').find('.p-text-modal').html(data['stock_status']);
+					$('.call-you-madal').find('.produc-modal-info-top').find('hr').show();
+				} else {
+					$('.call-you-madal').find('.produc-modal-info-top').find('.p-text-modal').html("");
+					$('.call-you-madal').find('.produc-modal-info-top').find('hr').hide();
+				}
 				$('.call-you-madal').find('.produc-modal-info-top').find('.p-cost-modal').find('.discount-price').html(data['tax']);	
 
 				if(key == 0)
