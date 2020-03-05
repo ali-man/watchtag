@@ -45,6 +45,15 @@
 </form>
 
 <script>
+  $('.card-body input').on('click', function(){
+    filter = [];
+  
+		$('input[name^=\'filterD\']:checked').each(function(element) {
+			filter.push(this.value);
+		});
+    location = '{{ action }}&filter=' + filter.join(',');
+  })
+
 	$('#button-filterD').on('click', function() {
 		filter = [];
 	
