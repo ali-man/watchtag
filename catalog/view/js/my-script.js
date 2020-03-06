@@ -48,7 +48,7 @@ $(document).ready(function() {
 				window.history.pushState('page2', 'Title', '/index.php?route=product/product&product_id=' + product_id);
 					
 				$('.call-you-madal').find('.produc-modal-info-top').find('.p-title-modal').html(data['name']);
-				if (data['stock_status'] == "По запросу" && data['stock_status'] == "Продан") {
+				if (data['stock_status'] == "По запросу" || data['stock_status'] == "Продан") {
 					$('.call-you-madal').find('.produc-modal-info-top').find('.p-text-modal-stock_status').html(data['stock_status']);
 					$('.call-you-madal').find('.produc-modal-info-top').find('hr').show();
 				} else {
